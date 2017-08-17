@@ -1,0 +1,50 @@
+<header class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">
+        <img width="50" src="/assets/images/logo.png">
+        Atlas Map Documentation
+      </a>
+      <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li class='{% if page.url == "/" %}active{% endif %}'>
+          <a href="/"><i class="fa fa-home"></i>
+            Home
+          </a>
+        </li>
+        <li class='{% if page.url contains "/modules/" %}active{% endif %}'>
+          <a href="/modules/root-map-element"><i class="fa fa-cubes"></i>
+            Modules
+          </a>
+        </li>
+        <li class='{% if page.url contains "/references/" %}active{% endif %}'>
+          <a href="/references/colors"><i class="fa fa-book"></i>
+            References
+          </a>
+        </li>
+        <li class='{% if page.url contains "/examples/" %}active{% endif %}'>
+          <a href="/examples"><i class="fa fa-gear"></i>
+            Examples
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<div class="jumbotron">
+  <div class="container">
+    <h1>
+      Atlas Map Documentation
+    </h1>
+    <p>
+      A comprehensive guide on creating maps and game modes for Atlas.
+    </p>
+  </div>
+</div>

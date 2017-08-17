@@ -1,0 +1,9 @@
+---
+layout: module
+title: Compasses
+permalink: /modules/compasses
+---
+
+<span><h1>Compasses</h1><p>This module is used to customize where a player's compass points based on various conditions.</p><p>If multiple compasses are defined, checks will be used to determine which target is assigned to each player.</p><span><h2>Compass</h2>{% highlight xml %}
+<!--TODO: Add example for Compass-->
+{% endhighlight %}<br><div class="table-responsive"><h5>Compass Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>check</code></td><td class="width: 65%"><p>Check that should be ran when deciding which compass target to choose for each player..</p><p>This can either be in ID form, or as a nested XML tag in the syntax of a check.</p></td><td><span class="label label-primary">Check</span></td></tr><tr class="info"><td><code>target</code></td><td class="width: 65%"><p>The targeting mode/point of the compass.</p><p>If 'enemy' is supplied, the compass will point to the closest enemy</p><p>If not, the compass will point to the provided x,y,z coordinate.</p></td><td><span class="label label-primary">Compass Target/Point</span></td></tr></tbody></table></div></span></span>

@@ -1,0 +1,9 @@
+---
+layout: module
+title: Elimination
+permalink: /modules/elimination
+---
+
+<span><h1>Elimination</h1><p>The elimination module is used to remove players from matches after a certain amount of deaths.</p><p>It should be noted that auto-respawn is automatically enabled on elimination maps to prevent players from prolonging the match.</p><span><h2>Configuration</h2><p>The main configuration for the elimination module.</p>{% highlight xml %}
+<!--TODO: Add example for Configuration-->
+{% endhighlight %}<br><div class="table-responsive"><h5>Configuration Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td><td>Default</td></tr></thead><tbody><tr><td><code>lives</code></td><td class="width: 65%"><p>The amount of deaths a player is allowed before they are eliminated.</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td><td><code>1</code></td></tr><tr><td><code>strike-on-eliminate</code></td><td class="width: 65%"><p>If lightning should strike at the location a player dies when they are eliminated.</p></td><td><span class="label label-primary">True/False</span></td><td><code>false</code></td></tr><tr><td><code>enable-on-start</code></td><td class="width: 65%"><p>If elimination should be enabled when the match starts. If this is false, the module will need to be enabled with an executor.</p></td><td><span class="label label-primary">True/False</span></td><td><code>true</code></td></tr><tr><td><code>check</code></td><td class="width: 65%"><p>Check that should be ran before a life is subtracted due to a death.</p><p>This can either be in ID form, or as a nested XML tag in the syntax of a check.</p></td><td><span class="label label-primary">Check</span></td><td></td></tr></tbody></table></div></span></span>

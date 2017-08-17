@@ -1,0 +1,51 @@
+a:focus {
+    outline: none;
+}
+
+.navbar-brand img {
+    margin-top: -6px;
+    margin-right: 10px;
+    margin-bottom: -11px;
+    float: left;
+}
+
+.jumbotron {
+    margin-top: -20px;
+    background: url(/assets/images/blueprint.jpg) fixed;
+    color: #fff;
+}
+
+.jumbotron h1 {
+    font-size: 46px;
+    margin: 0;
+    color: #fff;
+}
+
+.nav.nav-elements > li > a {
+    padding: 5px 15px;
+}
+
+.page-header,
+.page-header * {
+    margin-top: 0;
+}
+
+.space {
+    margin-top: 30px;
+}
+
+.attributes {
+    margin-top: 15px;
+}
+
+.versions .col-sm-1 {
+    padding-right: 0px;
+}
+
+.decoration-none {
+    text-decoration: none !important;
+}
+
+.decoration-none:hover {
+    text-decoration: none !important;
+}
