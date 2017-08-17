@@ -5,7 +5,21 @@ permalink: /modules/kills-deaths
 ---
 
 <span><h1>Kills/Deaths</h1><p>This module can be used to apply checks to kills and deaths and to give out kill rewards.</p><span><h2>Kill/Death Checks</h2><p>Checks that should run before players can get a kills/deaths.</p>{% highlight xml %}
-<!--TODO: Add example for Kill/Death Checks-->
+<kills>
+  <kill-check id="only-red" />
+  <death-check id="in-mid" />
+</kills>
 {% endhighlight %}<br><div class="table-responsive"><h5>Kill/Death Checks Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr class="info"><td><code>kill-check</code></td><td class="width: 65%"><p>Check that should be ran before a player can get a kill.</p><p>This can either be in ID form, or as a nested XML tag in the syntax of a check.</p></td><td><span class="label label-primary">Check</span></td></tr><tr class="info"><td><code>death-check</code></td><td class="width: 65%"><p>Check that should be ran before a player can die.</p><p>This can either be in ID form, or as a nested XML tag in the syntax of a check.</p></td><td><span class="label label-primary">Check</span></td></tr></tbody></table></div></span><span><h2>Kill Rewards</h2><p>This is used to reward loadouts to players upon successful kills.</p>{% highlight xml %}
-<!--TODO: Add example for Kill Rewards-->
+<loadouts>
+  ...
+  <loadout id="kill-reward">
+    <item material="golden apple" />
+  </loadout>
+</loadouts>
+
+<kills>
+  <rewards>
+    <reward loadout="kill-reward" />
+  </rewards>
+</kills>
 {% endhighlight %}<br><div class="table-responsive"><h5>Kill Rewards Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr class="info"><td><code>loadout</code></td><td class="width: 65%"><p>Loadout that should be given to the player upon a kill.</p><p>The id of the loadout for reference.</p></td><td><span class="label label-primary">Loadout ID</span></td></tr><tr><td><code>check</code></td><td class="width: 65%"><p>Check that should be ran before the loadout is rewarded to the killer.</p><p>This can either be in ID form, or as a nested XML tag in the syntax of a check.</p></td><td><span class="label label-primary">Check</span></td></tr></tbody></table></div></span></span>

@@ -8,12 +8,12 @@ permalink: /modules/zones
 <zones>...</zones>
 {% endhighlight %}<br><div class="table-responsive"><h5>Root Zone Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr class="info"><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr><tr><td><code>loadout</code></td><td class="width: 65%"><p>The id of the loadout for reference.</p></td><td><span class="label label-primary">Loadout ID</span></td></tr><tr><td><code>velocity</code></td><td class="width: 65%"><p>Velocity that should be applied to the player when they enter the zone.</p></td><td><span class="label label-primary">X,Y,Z Vector (With Decimals)</span></td></tr><tr class="info"><td><code>push</code></td><td class="width: 65%"><p>How far forward the player should go.</p></td><td><span class="label label-primary">Number (With Decimal)</span></td></tr><tr class="info"><td><code>icarus</code></td><td class="width: 65%"><p>How high the player should go.</p></td><td><span class="label label-primary">Number (With Decimal)</span></td></tr></tbody></table></div><span><h3>Failure Message</h3><p>This defines the message that is displayed if a player tries to do something they cannot.</p>{% highlight xml %}
 <message format="warning">{errors.outside-map}</message>
-{% endhighlight %}<br><div class="table-responsive"><h5>Format Types</h5><table class="table table-condensed"><thead><tr><td>Name</td><td>Format</td></tr></thead><tbody><tr><td>info</td><td>✳ MESSAGE</td></tr><tr><td>warning [default]</td><td>⚠ MESSAGE</td></tr><tr><td>none</td><td>MESSAGE</td></tr></tbody></table></div><br></span></span><span><h2>Checks</h2><p>Checks can be applied to various action in the zone.</p><p>These can either be defined as IDs in the parent tag or as sub tags with the same name.</p>{% highlight xml %}
+{% endhighlight %}<br><br><div class="table-responsive"><h5>Format Types</h5><table class="table table-condensed"><thead><tr><td>Name</td><td>Format</td></tr></thead><tbody><tr><td>info</td><td>✳ MESSAGE</td></tr><tr><td>warning [default]</td><td>⚠ MESSAGE</td></tr><tr><td>none</td><td>MESSAGE</td></tr></tbody></table></div><br></span></span><span><h2>Checks</h2><p>Checks can be applied to various action in the zone.</p><p>These can either be defined as IDs in the parent tag or as sub tags with the same name.</p>{% highlight xml %}
 <checks>
   <team id="redteam">red</team>
   <!--Checks if the player is on Red Team-->
 </checks>
-{% endhighlight %}<span><h3>Enter Check</h3><p>This check is applied to all players before they are allowed to enter the zone.</p>{% highlight xml %}
+{% endhighlight %}<br><span><h3>Enter Check</h3><p>This check is applied to all players before they are allowed to enter the zone.</p>{% highlight xml %}
 <zone enter="redteam">
   <!--Only Red Team can enter-->
   <region>
@@ -23,7 +23,7 @@ permalink: /modules/zones
     </join>
   </region>
 </zone>
-{% endhighlight %}</span><span><h3>Leave Check</h3><p>This check is applied to all players before they are allowed to leave the zone..</p>{% highlight xml %}
+{% endhighlight %}<br></span><span><h3>Leave Check</h3><p>This check is applied to all players before they are allowed to leave the zone..</p>{% highlight xml %}
 <zone leave="redteam">
   <!--Only Red Team can leave-->
   <region>
@@ -33,7 +33,7 @@ permalink: /modules/zones
     </join>
   </region>
 </zone>
-{% endhighlight %}</span><span><h3>Modify Check</h3><p>This check is applied to all players before they are allowed to place/break blocks and use items in the zone.</p>{% highlight xml %}
+{% endhighlight %}<br></span><span><h3>Modify Check</h3><p>This check is applied to all players before they are allowed to place/break blocks and use items in the zone.</p>{% highlight xml %}
 <zone modify="redteam">
   <!--Only Red Team can modify-->
   <region>
@@ -43,7 +43,7 @@ permalink: /modules/zones
     </join>
   </region>
 </zone>
-{% endhighlight %}</span><span><h3>Block Place Check</h3><p>This check is applied to all players before they are allowed to place blocks in the zone.</p>{% highlight xml %}
+{% endhighlight %}<br></span><span><h3>Block Place Check</h3><p>This check is applied to all players before they are allowed to place blocks in the zone.</p>{% highlight xml %}
 <zone place="redteam">
   <!--Only Red Team can place blocks-->
   <region>
@@ -53,7 +53,7 @@ permalink: /modules/zones
     </join>
   </region>
 </zone>
-{% endhighlight %}</span><span><h3>Block Break Check</h3><p>This check is applied to all players before they are allowed to break blocks in the zone</p>{% highlight xml %}
+{% endhighlight %}<br></span><span><h3>Block Break Check</h3><p>This check is applied to all players before they are allowed to break blocks in the zone</p>{% highlight xml %}
 <zone break="redteam">
   <!--Only Red Team can break blocks-->
   <region>
@@ -63,7 +63,7 @@ permalink: /modules/zones
     </join>
   </region>
 </zone>
-{% endhighlight %}</span><span><h3>Use Check</h3><p>This check is applied to all players before they are allowed to use items (such as buckets) in the zone.</p>{% highlight xml %}
+{% endhighlight %}<br></span><span><h3>Use Check</h3><p>This check is applied to all players before they are allowed to use items (such as buckets) in the zone.</p>{% highlight xml %}
 <zone use="redteam">
   <!--Only Red Team can use items-->
   <region>
@@ -73,11 +73,11 @@ permalink: /modules/zones
     </join>
   </region>
 </zone>
-{% endhighlight %}</span></span><span><h2>Liquid Rules</h2><p>Liquid rules are used to modify how liquids behave in this zone.</p>{% highlight xml %}
+{% endhighlight %}<br></span></span><span><h2>Liquid Rules</h2><p>Liquid rules are used to modify how liquids behave in this zone.</p>{% highlight xml %}
 <zone water-rule="no-flow" />
 
 <zone lava-rule="no-flow" />
-{% endhighlight %}<span><h3>Water Rule</h3><p>This rule is used to change how water flows</p>{% highlight xml %}
+{% endhighlight %}<br><span><h3>Water Rule</h3><p>This rule is used to change how water flows</p>{% highlight xml %}
 <zone water-rule="no-flow" modify="never">
   <region>
     <join>
@@ -109,23 +109,23 @@ permalink: /modules/zones
     <dispenser nuke-limit="70" nuke-multiplier="2.5" />
   </tnt>
 </zone>
-{% endhighlight %}<span><h3>TNT Yield</h3><p>The amount of items dropped by the explosion as a percentage</p>{% highlight xml %}
+{% endhighlight %}<br><span><h3>TNT Yield</h3><p>The amount of items dropped by the explosion as a percentage</p>{% highlight xml %}
 <yield>0</yield>
 
 <!-- TNT drops nothing -->
-{% endhighlight %}<h4>Element Text</h4><table class="table table-condensed"><thead><tr><td>Description</td><td>Type</td><td>Default</td></tr></thead><tbody><tr><td class="width: 65%"><p>Yield of the TNT</p></td><td><span class="label label-primary">Number (With Decimal)</span></td><td><code>0.25</code></td></tr></tbody></table></span><span><h3>Instant Ignite</h3><p>If tha when TNT is placed, that it should instantly become primed.</p>{% highlight xml %}
+{% endhighlight %}<br><h4>Element Text</h4><table class="table table-condensed"><thead><tr><td>Description</td><td>Type</td><td>Default</td></tr></thead><tbody><tr><td class="width: 65%"><p>Yield of the TNT</p></td><td><span class="label label-primary">Number (With Decimal)</span></td><td><code>0.25</code></td></tr></tbody></table></span><span><h3>Instant Ignite</h3><p>If tha when TNT is placed, that it should instantly become primed.</p>{% highlight xml %}
 <instant-ignite />
 
 <!--Immediately becomes primed once placed-->
-{% endhighlight %}<h4>Element Text</h4><table class="table table-condensed"><thead><tr><td>Description</td><td>Type</td><td>Default</td></tr></thead><tbody><tr><td class="width: 65%"><p>If instant ignite is enabled</p></td><td><span class="label label-primary">True/False</span></td><td><code>false</code></td></tr></tbody></table></span><span><h3>TNT Power</h3><p>Modify the explosion's block radius.</p>{% highlight xml %}
+{% endhighlight %}<br><h4>Element Text</h4><table class="table table-condensed"><thead><tr><td>Description</td><td>Type</td><td>Default</td></tr></thead><tbody><tr><td class="width: 65%"><p>If instant ignite is enabled</p></td><td><span class="label label-primary">True/False</span></td><td><code>false</code></td></tr></tbody></table></span><span><h3>TNT Power</h3><p>Modify the explosion's block radius.</p>{% highlight xml %}
 <power>70</power>
 
 <!--Explosion radius of 70-->
-{% endhighlight %}<h4>Element Text</h4><table class="table table-condensed"><thead><tr><td>Description</td><td>Type</td><td>Default</td></tr></thead><tbody><tr><td class="width: 65%"><p>explosion's block radius</p></td><td><span class="label label-primary">Number (With Decimal)</span></td><td><code>The default minecraft logic</code></td></tr></tbody></table></span><span><h3>TNT Power</h3><p>Time until the TNT explodes once it is ignited.</p>{% highlight xml %}
-<power>70</power>
+{% endhighlight %}<br><h4>Element Text</h4><table class="table table-condensed"><thead><tr><td>Description</td><td>Type</td><td>Default</td></tr></thead><tbody><tr><td class="width: 65%"><p>explosion's block radius</p></td><td><span class="label label-primary">Number (With Decimal)</span></td><td><code>The default minecraft logic</code></td></tr></tbody></table></span><span><h3>TNT Fuse</h3><p>Time until the TNT explodes once it is ignited.</p>{% highlight xml %}
+<fuse>1m</fuse>
 
-<!--Explosion radius of 70-->
-{% endhighlight %}<h4>Element Text</h4><table class="table table-condensed"><thead><tr><td>Description</td><td>Type</td><td>Default</td></tr></thead><tbody><tr><td class="width: 65%"><p>fuse</p><p>This attribute denotes a period of time and can either be in seconds or in a period format.</p><p>Formats are as follows:</p><p>    d - days</p><p>    h - hours</p><p>    m - minutes</p><p>    s - seconds</p><p>These can be combined to create any period. No spaces are allowed.</p></td><td><span class="label label-primary">Duration</span></td><td><code>10s</code></td></tr></tbody></table></span><span><h3>Dispenser Properties</h3><p>Options for dispensers when they are blown up.</p>{% highlight xml %}
+<!--One Minute till TNT explodes-->
+{% endhighlight %}<br><h4>Element Text</h4><table class="table table-condensed"><thead><tr><td>Description</td><td>Type</td><td>Default</td></tr></thead><tbody><tr><td class="width: 65%"><p>fuse</p><p>This attribute denotes a period of time and can either be in seconds or in a period format.</p><p>Formats are as follows:</p><p>    d - days</p><p>    h - hours</p><p>    m - minutes</p><p>    s - seconds</p><p>These can be combined to create any period. No spaces are allowed.</p></td><td><span class="label label-primary">Duration</span></td><td><code>10s</code></td></tr></tbody></table></span><span><h3>Dispenser Properties</h3><p>Options for dispensers when they are blown up.</p>{% highlight xml %}
 <dispenser nuke-limit="70" nuke-multiplier="2.5" />
 
 <!--When a dispenser full of TNT blows up, the TNT inside of the dispenser (limit of 70) blows up-->
