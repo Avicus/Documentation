@@ -11,11 +11,12 @@ permalink: /modules/module-groups
       <cuboid min="$min" max="$max" />
     </region>
   </zone>
-  <zones>
-    <load-group id="no-build" />
-    <load-group id="vel-zone" vel="0, 3.3, 0" min="92, 65, 37" max="95, 66, 40" />
-    <load-group id="vel-zone" vel="0, 3.8, 0" min="88, 65, 37" max="91, 66, 40" />
-    <load-group id="vel-zone" vel="0, 2.8, 0" min="84, 65, 37" max="87, 66, 40" />
-  </zones>
 </module-group>
+
+<zones>
+  <load-group id="no-build" />
+  <load-group id="vel-zone" vel="0, 3.3, 0" min="92, 65, 37" max="95, 66, 40" />
+  <load-group id="vel-zone" vel="0, 3.8, 0" min="88, 65, 37" max="91, 66, 40" />
+  <load-group id="vel-zone" vel="0, 2.8, 0" min="84, 65, 37" max="87, 66, 40" />
+</zones>
 {% endhighlight %}<br><div class="table-responsive"><h5>Group Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td><td>Default</td></tr></thead><tbody><tr class="info"><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td><td></td></tr><tr><td><code>chance</code></td><td class="width: 65%"><p>The chance of this group being loaded when the load tag is called.</p></td><td><span class="label label-primary">Integer Range</span><br><br><code>0-1</code></td><td><code>1</code></td></tr></tbody></table></div></span></span>

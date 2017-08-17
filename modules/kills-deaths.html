@@ -9,6 +9,11 @@ permalink: /modules/kills-deaths
   <kill-check id="only-red" />
   <death-check id="in-mid" />
 </kills>
+
+<checks>
+  <holding material="diamond sword" id="only-red" />
+  <on-ground id="in-mid" />
+</checks>
 {% endhighlight %}<br><div class="table-responsive"><h5>Kill/Death Checks Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr class="info"><td><code>kill-check</code></td><td class="width: 65%"><p>Check that should be ran before a player can get a kill.</p><p>This can either be in ID form, or as a nested XML tag in the syntax of a check.</p></td><td><span class="label label-primary">Check</span></td></tr><tr class="info"><td><code>death-check</code></td><td class="width: 65%"><p>Check that should be ran before a player can die.</p><p>This can either be in ID form, or as a nested XML tag in the syntax of a check.</p></td><td><span class="label label-primary">Check</span></td></tr></tbody></table></div></span><span><h2>Kill Rewards</h2><p>This is used to reward loadouts to players upon successful kills.</p>{% highlight xml %}
 <loadouts>
   ...
