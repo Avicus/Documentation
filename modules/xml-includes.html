@@ -4,6 +4,22 @@ title: XML Includes
 permalink: /modules/xml-includes
 ---
 
-<span><h1>XML Includes</h1><p>Includes are used to split a large and redundant configuration file into multiple smaller files. <include> elements should only be found directly as a child of the main <map> element.</p><span><h2>Include</h2>{% highlight xml %}
-<!--TODO: Add example for Include-->
+<span><h1>XML Includes</h1><p>Includes are used to split a large and redundant configuration file into multiple smaller files. <include> elements should only be found directly as a child of the main <map> element.</p><div class="table-responsive"><h5>Shared Includes</h5><table class="table table-condensed"><thead><tr><td>Path</td><td>Description</td></tr></thead><tbody><tr><td>defaults.xml</td><td>
+    Included in every map
+    This loads localization for maps.
+    DON'T DELETE THIS!
+</td></tr><tr><td>Shared/block-kits.xml</td><td> Default kits used for all maps that have block disguises. </td></tr><tr><td>Shared/groups.xml</td><td>
+    Shared file loaded for all maps that contains useful groups or "snippets" of code that is used in a lot of maps.
+    This is different from a regular include file because it can contain a wide variety of different feature definitions which can span a
+    variety of gamemodes and that are only loaded by the respective map's XML file directly.
+    Larger things that span multiple modules should generally receive their own include file.
+    The goal of this file if to cut down on excess code duplication and make it easy to change things in Atlas without having to change a lot of XMLs.
+</td></tr><tr><td>Shared/kits-standard-dtm.xml</td><td> Standard set of kits uses for all DTM maps with kits. </td></tr><tr><td>Shared/locales/en.xml</td><td> Localized strings for the english language. </td></tr><tr><td>Shared/locales/es.xml</td><td> Localized strings for the spanish language. </td></tr><tr><td>Shared/nexus-kits.xml</td><td> Default kits used for all maps in the nexus gamemode. </td></tr><tr><td>Shared/oitc.xml</td><td> Configuration and general elements used by all maps in the OITC (on in the quiver) genre. </td></tr><tr><td>Shared/phases-dtc.xml</td><td> Default phases used for maps in DTC. </td></tr><tr><td>Shared/phases-dtm.xml</td><td> Default phases used for maps in DTM. </td></tr><tr><td>Shared/red-alert.xml</td><td> Configuration and general elements used by all maps in the red alert genre. </td></tr><tr><td>Shared/reward-one-arrow.xml</td><td> Helper file to reward a golden apple on a kill. </td></tr><tr><td>Shared/reward-one-gap.xml</td><td> Helper file to reward an arrow on a kill. </td></tr><tr><td>Shared/reward-seven-arrows.xml</td><td> Helper file to reward seven arrows on a kill. </td></tr><tr><td>Shared/skywars.xml</td><td> Default chest population data for all SkyWars maps. </td></tr><tr><td>Shared/tutorials/ctw.xml</td><td> Base tutorial that should be included by all CTW maps. </td></tr><tr><td>Shared/tutorials/dtc.xml</td><td> Base tutorial that should be included by all DTC maps. </td></tr><tr><td>Shared/tutorials/dtm.xml</td><td> Base tutorial that should be included by all DTM maps. </td></tr><tr><td>Shared/tutorials/koth.xml</td><td> Base tutorial that should be included by all KOTH maps. </td></tr><tr><td>Shared/tutorials/main.xml</td><td> File that contains the default beginning and ending map tutorial phases. </td></tr><tr><td>Shared/tutorials/tdm.xml</td><td> Base tutorial that should be included by all TDM maps. </td></tr><tr><td>Shared/tutorials/tnt.xml</td><td> Base tutorial that should be included by all maps that use TNT. </td></tr><tr><td>Shared/walls-kits.xml</td><td> Default kits used for all maps in the walls gamemode. </td></tr></tbody></table></div><span><h2>Include</h2>{% highlight xml %}
+<include src="defaults.xml" />
+
+<!--Default-->
+
+<include src="Shared/reward-one-arrow.xml" />
+
+<!--One arrow on Kill-->
 {% endhighlight %}<br><div class="table-responsive"><h5>Include Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr class="info"><td><code>src</code></td><td class="width: 65%"><p>The path to another map configuration file.</p></td><td><span class="label label-primary">Text</span></td></tr><tr><td><code>local</code></td><td class="width: 65%"><p>If set to to true, it will search for the import in the same directory as the map.xml, otherwise it searches in the shared maps directory.</p></td><td><span class="label label-primary">True/False</span></td></tr></tbody></table></div></span></span>

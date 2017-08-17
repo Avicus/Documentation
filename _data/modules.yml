@@ -4,41 +4,41 @@ content:
 - {path: /modules/root-map-element, name: Root Map Element}
 - {path: /modules/authors-and-contributors, name: Authors and Contributors}
 - {path: /modules/xml-includes, name: XML Includes}
-- {path: /modules/xml-conditionals, name: XML Conditionals}
-- {path: /modules/module-groups, name: Module Groups}
 - {path: /modules/objectives, name: Objectives}
-- {path: /modules/items---loadouts, name: Items & Loadouts}
-- {path: /modules/localization, name: Localization}
-- {path: /modules/spawns, name: Spawns}
-- {path: /modules/groups, name: Groups}
-- {path: /modules/checks, name: Checks}
 - {path: /modules/facts-mvp-settings, name: Facts/MVP Settings}
-- {path: /modules/regions, name: Regions}
+- {path: /modules/spawns, name: Spawns}
 - {path: /modules/map-tutorials, name: Map Tutorials}
+- {path: /modules/regions, name: Regions}
+- {path: /modules/items---loadouts, name: Items & Loadouts}
+- {path: /modules/groups, name: Groups}
+- {path: /modules/localization, name: Localization}
+- {path: /modules/checks, name: Checks}
 - General Game Components
-- {path: /modules/elimination, name: Elimination}
-- {path: /modules/chest-refill, name: Chest Refill}
-- {path: /modules/kits, name: Kits}
-- {path: /modules/zones, name: Zones}
-- {path: /modules/broadcasts, name: Broadcasts}
-- {path: /modules/remove-repair-and-keep, name: 'Remove, Repair, and Keep'}
 - {path: /modules/custom-projectiles, name: Custom Projectiles}
 - {path: /modules/chat-channels, name: Chat Channels}
+- {path: /modules/zones, name: Zones}
 - {path: /modules/destroyable-phases, name: Destroyable Phases}
+- {path: /modules/chest-refill, name: Chest Refill}
+- {path: /modules/broadcasts, name: Broadcasts}
+- {path: /modules/kits, name: Kits}
+- {path: /modules/elimination, name: Elimination}
+- {path: /modules/remove-repair-and-keep, name: 'Remove, Repair, and Keep'}
 - Miscellaneous Modules & Features
 - {path: /modules/world-modification, name: World Modification}
 - {path: /modules/decay-areas-and-phases, name: Decay Areas and Phases}
-- {path: /modules/fake-guis, name: Fake GUIs}
-- {path: /modules/ender-chests, name: Ender Chests}
-- {path: /modules/damage-module, name: Damage Module}
-- {path: /modules/kills-deaths, name: Kills/Deaths}
-- {path: /modules/damage-modification, name: Damage Modification}
 - {path: /modules/compasses, name: Compasses}
+- {path: /modules/fake-guis, name: Fake GUIs}
+- {path: /modules/damage-modification, name: Damage Modification}
+- {path: /modules/kills-deaths, name: Kills/Deaths}
+- {path: /modules/damage-module, name: Damage Module}
+- {path: /modules/ender-chests, name: Ender Chests}
 - Special Game Types
 - {path: /modules/walls, name: Walls}
 - Advanced Modules
+- {path: /modules/xml-conditionals, name: XML Conditionals}
+- {path: /modules/module-groups, name: Module Groups}
 - {path: /modules/schematic-loading-creation, name: Schematic Loading/Creation}
-- {path: /modules/custom-resource-packs, name: Custom Resource Packs}
-- {path: /modules/match-states, name: Match States}
 - {path: /modules/results, name: Results}
+- {path: /modules/custom-resource-packs, name: Custom Resource Packs}
 - {path: /modules/executors, name: Executors}
+- {path: /modules/match-states, name: Match States}
