@@ -4,36 +4,41 @@ title: Checks
 permalink: /modules/checks
 ---
 
-<span><h1>Checks</h1><p>Checks are conditions that must pass in order for an action to happen in a match.</p><p>On their own, they do nothing.</p><span><h2>Weather Check</h2><p>This check can be used to query information about what an entity has in their inventory.</p>{% highlight xml %}
+<span><h1>Checks</h1><p>Checks are conditions that must pass in order for an action to happen in a match.</p><p>On their own, they do nothing.</p><span><h2>All Check</h2><p>This check will only pass if all of it's children checks pass.</p>{% highlight xml %}
+<checks>
+  <all id="allofthis">
+    <carrying material="iron" amount="12" />
+    <holding material="iron sword" />
+  </all>
+</checks>
+{% endhighlight %}<br><div class="table-responsive"><h5>All Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Not Check</h2><p>This check will invert the result of the child check.</p>{% highlight xml %}
+<checks>
+  <not id="ironsword">
+    <holding material="iron sword" />
+  </not>
+</checks>
+{% endhighlight %}<br><div class="table-responsive"><h5>Not Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Explosion Check</h2><p>This check is used to check if an entity is a explosive.</p><table class="table table-condensed"><thead><tr><td>Specification</td><td>Changes</td></tr></thead><tbody><tr class="bg-success"><td>1.0.4<td>ADDED</td></td></tr></tbody></table>{% highlight xml %}
 <checks>
   ...
-  <weather id="norain">clear</weather>
+  <explosion id="boom" />
 </checks>
-{% endhighlight %}<br><h4>Element Text</h4><table class="table table-condensed"><thead><tr><td>Description</td><td>Type</td></tr></thead><tbody><tr><td class="width: 65%"><p>The type of weather to check for.</p></td><td><span class="label label-primary">Weather Type</span><br><br><code>downfall</code>,<code>clear</code></td></tr></tbody></table><div class="table-responsive"><h5>Weather Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Damage Check</h2><p>This check can be used to query information about the cause of a damage event.</p>{% highlight xml %}
+{% endhighlight %}<br><div class="table-responsive"><h5>Explosion Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Material Check</h2><p>This check is used to query information about what type of material an item or block is.</p>{% highlight xml %}
 <checks>
   ...
-  <damage id="falldam">fall</damage>
+  <material id="logfolder">log:1</material>
 </checks>
-{% endhighlight %}<br><h4>Element Text</h4><table class="table table-condensed"><thead><tr><td>Description</td><td>Type</td></tr></thead><tbody><tr><td class="width: 65%"><p>Damage cause to look for.</p></td><td><span class="label label-primary">DamageCause</span><br><a href="https://hub.spigotmc.org/javadocs/spigot/org/bukkit/event/entity/DamageCause.html">Possible Values</a></td></tr></tbody></table><div class="table-responsive"><h5>Damage Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Score Check</h2><code>REQUIREMENT:</code>This feature requires the <a href="/modules/objectives">Objectives Module</a>.<br><br><p>This check is used to check the current score of a team.</p><p>If no team is specified, the team will be determined contextually.</p>{% highlight xml %}
+{% endhighlight %}<br><div class="table-responsive"><h5>Material Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Spawn Reason Check</h2><p>This check is used to check the spawn reason of a spawn event.</p>{% highlight xml %}
 <checks>
   ...
-  <score compare="greater" team="blue">4</score>
+  <spawn id="spawneggs">spawner egg</spawn>
 </checks>
-{% endhighlight %}<br><h4>Element Text</h4><table class="table table-condensed"><thead><tr><td>Description</td><td>Type</td></tr></thead><tbody><tr><td class="width: 65%"><p>The score to compare against.</p></td><td><span class="label label-primary">Text</span></td></tr></tbody></table><div class="table-responsive"><h5>Score Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td><td>Default</td></tr></thead><tbody><tr class="info"><td><code>team</code></td><td class="width: 65%"><p>The id of the team for reference.</p></td><td><span class="label label-primary">Team ID</span></td><td></td></tr><tr class="info"><td><code>compare</code></td><td class="width: 65%"><p>The comparator which is used to compare the supplied value and the score.</p></td><td><span class="label label-primary">Number Comparator</span><br><br><code>equals - Check if numbers are exact match.</code>,<br><code>less than - Check if the supplied value is less than the score.</code>,<br><code>less than equal - Check if the supplied value is less than, or equal, to the score.</code>,<br><code>greater than - Check if the supplied value is greater than the score.</code>,<br><code>greater than equal - Check if the supplied value is greater than, or equal, to the score.</code><br></td><td><code>equals</code></td></tr><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td><td></td></tr></tbody></table></div></span><span><h2>Entity Check</h2><p>This check can be used to query information about the type of entity involved in an event.</p>{% highlight xml %}
+{% endhighlight %}<br><h4>Element Text</h4><table class="table table-condensed"><thead><tr><td>Description</td><td>Type</td></tr></thead><tbody><tr><td class="width: 65%"><p>Reason to check for.</p></td><td><span class="label label-primary">SpawnReason</span><br><a href="https://hub.spigotmc.org/javadocs/spigot/org/bukkit/event/entity/SpawnReason.html">Possible Values</a></td></tr></tbody></table><div class="table-responsive"><h5>Spawn Reason Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Allow Check</h2><p>This check will only pass if the child check passes.</p>{% highlight xml %}
 <checks>
-  ...
-  <entity id="piggy">pig</entity>
+  <allow id="ironsword3">
+    <holding material="iron sword" />
+  </allow>
 </checks>
-{% endhighlight %}<br><h4>Element Text</h4><table class="table table-condensed"><thead><tr><td>Description</td><td>Type</td></tr></thead><tbody><tr><td class="width: 65%"><p>The type of entity to check for.</p></td><td><span class="label label-primary">EntityType</span><br><a href="https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/EntityType.html">Possible Values</a></td></tr></tbody></table><div class="table-responsive"><h5>Entity Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Participating Check</h2><p>This check is used to check if a player is currently participating in the match.</p>{% highlight xml %}
-<checks>
-  <participating id="youplaying" />
-</checks>
-{% endhighlight %}<br><div class="table-responsive"><h5>Participating Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Holding Check</h2><p>This check is used to query information about what an entity is holding in hand.</p>{% highlight xml %}
-<checks>
-  ...
-  <holding id="stone" material="stone sword" />
-</checks>
-{% endhighlight %}<br><div class="table-responsive"><h5>Holding Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Attacker Check</h2><p>This check is a parent check that can be used to query any information about the attacker of a damage event.</p>{% highlight xml %}
+{% endhighlight %}<br><div class="table-responsive"><h5>Allow Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Attacker Check</h2><p>This check is a parent check that can be used to query any information about the attacker of a damage event.</p>{% highlight xml %}
 <checks>
   ...
   <attacker id="donthurtme">
@@ -43,96 +48,26 @@ permalink: /modules/checks
     </any>
   </attacker>
 </checks>
-{% endhighlight %}<br><div class="table-responsive"><h5>Attacker Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Random Check</h2><p>This check will randomly return true based on chance.</p>{% highlight xml %}
+{% endhighlight %}<br><div class="table-responsive"><h5>Attacker Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Elimination Check</h2><p>This check is used to check if elimination is currently enabled.</p><table class="table table-condensed"><thead><tr><td>Specification</td><td>Changes</td></tr></thead><tbody><tr class="bg-success"><td>1.0.4<td>ADDED</td></td></tr></tbody></table>{% highlight xml %}
 <checks>
-  ...
-  <!-- 10% chance of passing -->
-  <random id="chance">0.1</random>
+  <elimination id="eliminated" />
 </checks>
-{% endhighlight %}<br><div class="table-responsive"><h5>Random Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Kit Check</h2><code>REQUIREMENT:</code>This feature requires the <a href="/modules/kits">Kits Module</a>.<br><br><p>This check is used to check which kit a player is using.</p><table class="table table-condensed"><thead><tr><td>Specification</td><td>Changes</td></tr></thead><tbody><tr><td>1.0.1<td>ADDED</td></td></tr></tbody></table>{% highlight xml %}
-<checks>
-  ...
-  <kit id="kitcheck">some-kit</kit>
-</checks>
-{% endhighlight %}<br><h4>Element Text</h4><table class="table table-condensed"><thead><tr><td>Description</td><td>Type</td></tr></thead><tbody><tr><td class="width: 65%"><p>The id of the kit for reference.</p></td><td><span class="label label-primary">Kit ID</span></td></tr></tbody></table><div class="table-responsive"><h5>Kit Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Explosion Check</h2><p>This check is used to check if an entity is a explosive.</p>{% highlight xml %}
-<checks>
-  ...
-  <explosion id="boom" />
-</checks>
-{% endhighlight %}<br><div class="table-responsive"><h5>Explosion Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Spectating Check</h2><p>This check is used to check if a player is currently spectating the match.</p>{% highlight xml %}
-<checks>
-  ...
-  <spectating id="spectator" />
-</checks>
-{% endhighlight %}<br><div class="table-responsive"><h5>Spectating Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>State Check</h2><p>This check is used to check the current state of the match.</p><p>Default states are starting, playing, and cycling</p>{% highlight xml %}
-<checks>
-  ...
-  <state id="matchstate">playing</state>
-</checks>
-{% endhighlight %}<br><h4>Element Text</h4><table class="table table-condensed"><thead><tr><td>Description</td><td>Type</td></tr></thead><tbody><tr><td class="width: 65%"><p>The id of the state for reference.</p></td><td><span class="label label-primary">State ID</span></td></tr></tbody></table><div class="table-responsive"><h5>State Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Inside Check</h2><p>This check is used to check if a location is inside of a region.</p>{% highlight xml %}
-<checks>
-  <inside id="insidethis">
-    <region>
-      <sphere origin="41, 15, 0" radius="5" />
-    </region>
-  </inside>
-</checks>
-{% endhighlight %}<br><div class="table-responsive"><h5>Inside Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Any Check</h2><p>This check will pass if any of the child checks pass.</p>{% highlight xml %}
-<checks>
-  <any id="why">
-    <carrying material="iron" amount="12" />
-    <holding material="iron sword" />
-  </any>
-</checks>
-{% endhighlight %}<br><div class="table-responsive"><h5>Any Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Material Check</h2><p>This check is used to query information about what type of material an item or block is.</p>{% highlight xml %}
-<checks>
-  ...
-  <material id="logfolder">log:1</material>
-</checks>
-{% endhighlight %}<br><div class="table-responsive"><h5>Material Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Objective Check</h2><code>REQUIREMENT:</code>This feature requires the <a href="/modules/objectives">Objectives Module</a>.<br><br><p>This check is used to query information about the current state of an objective.</p>{% highlight xml %}
-<checks>
-  <objective id="touch" state="touched">some-flag</objective>
-  <!-- STATES: Completed, Captured, Touched. -->
-</checks>
-{% endhighlight %}<br><div class="table-responsive"><h5>Objective Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr class="info"><td><code>team</code></td><td class="width: 65%"><p>The id of the team for reference.</p></td><td><span class="label label-primary">Team ID</span></td></tr><tr><td><code>state</code></td><td class="width: 65%"><p>The score to check for.</p></td><td><span class="label label-primary">Check Type</span><br><br><code>completed</code>,<code>captured</code>,<code>touched</code></td></tr><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Sometimes Check</h2><p>This is a random check with a 50% value.</p>{% highlight xml %}
-<checks>
-  ...
-  <!-- NOTE: The "sometimes" ID is added by default and cannot be used -->
-  <sometimes id="sometimes-1" />
-</checks>
-{% endhighlight %}<br><div class="table-responsive"><h5>Sometimes Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Not Check</h2><p>This check will invert the result of the child check.</p>{% highlight xml %}
-<checks>
-  <not id="ironsword">
-    <holding material="iron sword" />
-  </not>
-</checks>
-{% endhighlight %}<br><div class="table-responsive"><h5>Not Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Item Check</h2><p>This check is used to query information about the type of an item.</p>{% highlight xml %}
+{% endhighlight %}<br><div class="table-responsive"><h5>Elimination Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Item Check</h2><p>This check is used to query information about the type of an item.</p>{% highlight xml %}
 <checks>
   ...
   <item id="woodcheck" material="wood" damage="1" />
 </checks>
-{% endhighlight %}<br><h4>Element Text</h4><table class="table table-condensed"><thead><tr><td>Description</td><td>Type</td></tr></thead><tbody><tr><td class="width: 65%"><p>The material to check against.</p><p>A material is defined in the syntax of matname:damage when matname is the name of the material and damage is the damage value of the material.</p><p>A damage value is not required.</p></td><td><span class="label label-primary">Singular Material Matcher</span></td></tr></tbody></table><div class="table-responsive"><h5>Item Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Void Check</h2><p>This check is used to check if a location is above the void.</p>{% highlight xml %}
+{% endhighlight %}<br><h4>Element Text</h4><table class="table table-condensed"><thead><tr><td>Description</td><td>Type</td></tr></thead><tbody><tr><td class="width: 65%"><p>The material to check against.</p><p>A material is defined in the syntax of matname:damage when matname is the name of the material and damage is the damage value of the material.</p><p>A damage value is not required.</p></td><td><span class="label label-primary">Singular Material Matcher</span></td></tr></tbody></table><div class="table-responsive"><h5>Item Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Team Check</h2><p>This check is used to check what team a player is on.</p>{% highlight xml %}
 <checks>
   ...
-  <void min="0,0,0" max="1,1,1" id="VOID" />
+  <team id="blueteam">blue</team>
 </checks>
-{% endhighlight %}<br><div class="table-responsive"><h5>Void Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td><td>Default</td></tr></thead><tbody><tr><td><code>min</code></td><td class="width: 65%"><p>The minimum y coordinate to check.</p></td><td><span class="label label-primary">Number</span></td><td><code>0</code></td></tr><tr><td><code>max</code></td><td class="width: 65%"><p>The maximum y coordinate to check.</p></td><td><span class="label label-primary">Number</span></td><td><code>5</code></td></tr><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td><td></td></tr></tbody></table></div></span><span><h2>All Check</h2><p>This check will only pass if all of it's children checks pass.</p>{% highlight xml %}
-<checks>
-  <all id="allofthis">
-    <carrying material="iron" amount="12" />
-    <holding material="iron sword" />
-  </all>
-</checks>
-{% endhighlight %}<br><div class="table-responsive"><h5>All Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Carrying Check</h2><p>This check can be used to query information about what an entity has in their inventory.</p>{% highlight xml %}
+{% endhighlight %}<br><h4>Element Text</h4><table class="table table-condensed"><thead><tr><td>Description</td><td>Type</td></tr></thead><tbody><tr><td class="width: 65%"><p>The id of the team for reference.</p></td><td><span class="label label-primary">Team ID</span></td></tr></tbody></table><div class="table-responsive"><h5>Team Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Score Check</h2><code>REQUIREMENT:</code>This feature requires the <a href="/modules/objectives">Objectives Module</a>.<br><br><p>This check is used to check the current score of a team.</p><p>If no team is specified, the team will be determined contextually.</p>{% highlight xml %}
 <checks>
   ...
-  <carrying material="diamond" amount="3" id="diamond" />
+  <score compare="greater" team="blue">4</score>
 </checks>
-{% endhighlight %}<br><div class="table-responsive"><h5>Carrying Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Kill Streak Check</h2><p>This check is used to query information about the amount of kills a player has gotten in a row.</p>{% highlight xml %}
-<checks>
-  <kill-streak id="hey" scope="life">1-4</kill-streak>
-</checks>
-{% endhighlight %}<br><div class="table-responsive"><h5>Kill Streak Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr class="info"><td><code>scope</code></td><td class="width: 65%"><p>Scope to use when checking streak.</p></td><td><span class="label label-primary">Scope</span><br><br><code>life</code>,<code>match</code></td></tr><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Victim Check</h2><p>This check is a parent check that can be used to query any information about the victim of a damage event.</p>{% highlight xml %}
+{% endhighlight %}<br><h4>Element Text</h4><table class="table table-condensed"><thead><tr><td>Description</td><td>Type</td></tr></thead><tbody><tr><td class="width: 65%"><p>The score to compare against.</p></td><td><span class="label label-primary">Text</span></td></tr></tbody></table><div class="table-responsive"><h5>Score Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td><td>Default</td></tr></thead><tbody><tr class="info"><td><code>team</code></td><td class="width: 65%"><p>The id of the team for reference.</p></td><td><span class="label label-primary">Team ID</span></td><td></td></tr><tr class="info"><td><code>compare</code></td><td class="width: 65%"><p>The comparator which is used to compare the supplied value and the score.</p></td><td><span class="label label-primary">Number Comparator</span><br><br><code>equals - Check if numbers are exact match.</code>,<br><code>less than - Check if the supplied value is less than the score.</code>,<br><code>less than equal - Check if the supplied value is less than, or equal, to the score.</code>,<br><code>greater than - Check if the supplied value is greater than the score.</code>,<br><code>greater than equal - Check if the supplied value is greater than, or equal, to the score.</code><br></td><td><code>equals</code></td></tr><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td><td></td></tr></tbody></table></div></span><span><h2>Victim Check</h2><p>This check is a parent check that can be used to query any information about the victim of a damage event.</p>{% highlight xml %}
 <checks>
   ...
   <victim id="victims">
@@ -142,54 +77,119 @@ permalink: /modules/checks
     </any>
   </victim>
 </checks>
-{% endhighlight %}<br><div class="table-responsive"><h5>Victim Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Allow Check</h2><p>This check will only pass if the child check passes.</p>{% highlight xml %}
+{% endhighlight %}<br><div class="table-responsive"><h5>Victim Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Participating Check</h2><p>This check is used to check if a player is currently participating in the match.</p><table class="table table-condensed"><thead><tr><td>Specification</td><td>Changes</td></tr></thead><tbody><tr class="bg-success"><td>1.0.4<td>ADDED</td></td></tr></tbody></table>{% highlight xml %}
 <checks>
-  <allow id="ironsword3">
-    <holding material="iron sword" />
-  </allow>
+  <participating id="youplaying" />
 </checks>
-{% endhighlight %}<br><div class="table-responsive"><h5>Allow Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Team Check</h2><p>This check is used to check what team a player is on.</p>{% highlight xml %}
+{% endhighlight %}<br><div class="table-responsive"><h5>Participating Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Wearing Check</h2><p>This check can be used to query information about what an entity is wearing.</p>{% highlight xml %}
 <checks>
   ...
-  <team id="blueteam">blue</team>
+  <wearing id="chestplate" material="iron chestplate" />
 </checks>
-{% endhighlight %}<br><h4>Element Text</h4><table class="table table-condensed"><thead><tr><td>Description</td><td>Type</td></tr></thead><tbody><tr><td class="width: 65%"><p>The id of the team for reference.</p></td><td><span class="label label-primary">Team ID</span></td></tr></tbody></table><div class="table-responsive"><h5>Team Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Elimination Check</h2><p>This check is used to check if elimination is currently enabled.</p>{% highlight xml %}
+{% endhighlight %}<br><div class="table-responsive"><h5>Wearing Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Spectating Check</h2><p>This check is used to check if a player is currently spectating the match.</p><table class="table table-condensed"><thead><tr><td>Specification</td><td>Changes</td></tr></thead><tbody><tr class="bg-success"><td>1.0.4<td>ADDED</td></td></tr></tbody></table>{% highlight xml %}
 <checks>
-  <elimination id="eliminated" />
+  ...
+  <spectating id="spectator" />
 </checks>
-{% endhighlight %}<br><div class="table-responsive"><h5>Elimination Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Deny Check</h2><p>This check will only pass if the child check fails.</p>{% highlight xml %}
+{% endhighlight %}<br><div class="table-responsive"><h5>Spectating Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Holding Check</h2><p>This check is used to query information about what an entity is holding in hand.</p>{% highlight xml %}
+<checks>
+  ...
+  <holding id="stone" material="stone sword" />
+</checks>
+{% endhighlight %}<br><div class="table-responsive"><h5>Holding Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Damage Check</h2><p>This check can be used to query information about the cause of a damage event.</p>{% highlight xml %}
+<checks>
+  ...
+  <damage id="falldam">fall</damage>
+</checks>
+{% endhighlight %}<br><h4>Element Text</h4><table class="table table-condensed"><thead><tr><td>Description</td><td>Type</td></tr></thead><tbody><tr><td class="width: 65%"><p>Damage cause to look for.</p></td><td><span class="label label-primary">DamageCause</span><br><a href="https://hub.spigotmc.org/javadocs/spigot/org/bukkit/event/entity/DamageCause.html">Possible Values</a></td></tr></tbody></table><div class="table-responsive"><h5>Damage Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Void Check</h2><p>This check is used to check if a location is above the void.</p><table class="table table-condensed"><thead><tr><td>Specification</td><td>Changes</td></tr></thead><tbody><tr class="bg-success"><td>1.0.4<td>ADDED</td></td></tr></tbody></table>{% highlight xml %}
+<checks>
+  ...
+  <void min="0,0,0" max="1,1,1" id="VOID" />
+</checks>
+{% endhighlight %}<br><div class="table-responsive"><h5>Void Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td><td>Default</td></tr></thead><tbody><tr><td><code>min</code></td><td class="width: 65%"><p>The minimum y coordinate to check.</p></td><td><span class="label label-primary">Number</span></td><td><code>0</code></td></tr><tr><td><code>max</code></td><td class="width: 65%"><p>The maximum y coordinate to check.</p></td><td><span class="label label-primary">Number</span></td><td><code>5</code></td></tr><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td><td></td></tr></tbody></table></div></span><span><h2>Carrying Check</h2><p>This check can be used to query information about what an entity has in their inventory.</p>{% highlight xml %}
+<checks>
+  ...
+  <carrying material="diamond" amount="3" id="diamond" />
+</checks>
+{% endhighlight %}<br><div class="table-responsive"><h5>Carrying Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Deny Check</h2><p>This check will only pass if the child check fails.</p>{% highlight xml %}
 <checks>
   <deny id="ironsword2">
     <holding material="iron sword" />
   </deny>
 </checks>
-{% endhighlight %}<br><div class="table-responsive"><h5>Deny Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Always Check</h2><p>This check will always pass.</p>{% highlight xml %}
-<checks>
-  <!-- NOTE: The "always" ID is added by default and cannot be used -->
-  <always id="always-1" />
-</checks>
-{% endhighlight %}<br><div class="table-responsive"><h5>Always Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Wearing Check</h2><p>This check can be used to query information about what an entity is wearing.</p>{% highlight xml %}
+{% endhighlight %}<br><div class="table-responsive"><h5>Deny Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Random Check</h2><p>This check will randomly return true based on chance.</p>{% highlight xml %}
 <checks>
   ...
-  <wearing id="chestplate" material="iron chestplate" />
+  <!-- 10% chance of passing -->
+  <random id="chance">0.1</random>
 </checks>
-{% endhighlight %}<br><div class="table-responsive"><h5>Wearing Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Never Check</h2><p>This check will never pass.</p>{% highlight xml %}
+{% endhighlight %}<br><div class="table-responsive"><h5>Random Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Never Check</h2><p>This check will never pass.</p>{% highlight xml %}
 <checks>
   <!-- NOTE: The "never" ID is added by default and cannot be used -->
   <never id="never-1" />
 </checks>
-{% endhighlight %}<br><div class="table-responsive"><h5>Never Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Time Check</h2><p>This check is used to check time that the match has been playing.</p>{% highlight xml %}
+{% endhighlight %}<br><div class="table-responsive"><h5>Never Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Objective Check</h2><code>REQUIREMENT:</code>This feature requires the <a href="/modules/objectives">Objectives Module</a>.<br><br><p>This check is used to query information about the current state of an objective.</p>{% highlight xml %}
+<checks>
+  <objective id="touch" state="touched">some-flag</objective>
+  <!-- STATES: Completed, Captured, Touched. -->
+</checks>
+{% endhighlight %}<br><div class="table-responsive"><h5>Objective Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr class="info"><td><code>team</code></td><td class="width: 65%"><p>The id of the team for reference.</p></td><td><span class="label label-primary">Team ID</span></td></tr><tr><td><code>state</code></td><td class="width: 65%"><p>The score to check for.</p></td><td><span class="label label-primary">Check Type</span><br><br><code>completed</code>,<code>captured</code>,<code>touched</code></td></tr><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Inside Check</h2><p>This check is used to check if a location is inside of a region.</p>{% highlight xml %}
+<checks>
+  <inside id="insidethis">
+    <region>
+      <sphere origin="41, 15, 0" radius="5" />
+    </region>
+  </inside>
+</checks>
+{% endhighlight %}<br><div class="table-responsive"><h5>Inside Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Weather Check</h2><p>This check can be used to query information about what an entity has in their inventory.</p>{% highlight xml %}
+<checks>
+  ...
+  <weather id="norain">clear</weather>
+</checks>
+{% endhighlight %}<br><h4>Element Text</h4><table class="table table-condensed"><thead><tr><td>Description</td><td>Type</td></tr></thead><tbody><tr><td class="width: 65%"><p>The type of weather to check for.</p></td><td><span class="label label-primary">Weather Type</span><br><br><code>downfall</code>,<code>clear</code></td></tr></tbody></table><div class="table-responsive"><h5>Weather Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>State Check</h2><p>This check is used to check the current state of the match.</p><p>Default states are starting, playing, and cycling</p>{% highlight xml %}
+<checks>
+  ...
+  <state id="matchstate">playing</state>
+</checks>
+{% endhighlight %}<br><h4>Element Text</h4><table class="table table-condensed"><thead><tr><td>Description</td><td>Type</td></tr></thead><tbody><tr><td class="width: 65%"><p>The id of the state for reference.</p></td><td><span class="label label-primary">State ID</span></td></tr></tbody></table><div class="table-responsive"><h5>State Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Always Check</h2><p>This check will always pass.</p>{% highlight xml %}
+<checks>
+  <!-- NOTE: The "always" ID is added by default and cannot be used -->
+  <always id="always-1" />
+</checks>
+{% endhighlight %}<br><div class="table-responsive"><h5>Always Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Any Check</h2><p>This check will pass if any of the child checks pass.</p>{% highlight xml %}
+<checks>
+  <any id="why">
+    <carrying material="iron" amount="12" />
+    <holding material="iron sword" />
+  </any>
+</checks>
+{% endhighlight %}<br><div class="table-responsive"><h5>Any Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Kit Check</h2><code>REQUIREMENT:</code>This feature requires the <a href="/modules/kits">Kits Module</a>.<br><br><p>This check is used to check which kit a player is using.</p><table class="table table-condensed"><thead><tr><td>Specification</td><td>Changes</td></tr></thead><tbody><tr class="bg-success"><td>1.0.1<td>ADDED</td></td></tr></tbody></table>{% highlight xml %}
+<checks>
+  ...
+  <kit id="kitcheck">some-kit</kit>
+</checks>
+{% endhighlight %}<br><h4>Element Text</h4><table class="table table-condensed"><thead><tr><td>Description</td><td>Type</td></tr></thead><tbody><tr><td class="width: 65%"><p>The id of the kit for reference.</p></td><td><span class="label label-primary">Kit ID</span></td></tr></tbody></table><div class="table-responsive"><h5>Kit Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Sometimes Check</h2><p>This is a random check with a 50% value.</p>{% highlight xml %}
+<checks>
+  ...
+  <!-- NOTE: The "sometimes" ID is added by default and cannot be used -->
+  <sometimes id="sometimes-1" />
+</checks>
+{% endhighlight %}<br><div class="table-responsive"><h5>Sometimes Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Time Check</h2><p>This check is used to check time that the match has been playing.</p>{% highlight xml %}
 <checks>
   ...
   <!-- Time equals 5 minutes, 0 seconds -->
   <time id="5minute">5m</time>
 </checks>
-{% endhighlight %}<br><h4>Element Text</h4><table class="table table-condensed"><thead><tr><td>Description</td><td>Type</td></tr></thead><tbody><tr><td class="width: 65%"><p>The time to check against.</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td></tr></tbody></table><div class="table-responsive"><h5>Time Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td><td>Default</td></tr></thead><tbody><tr class="info"><td><code>compare</code></td><td class="width: 65%"><p>The comparator which is used to compare the supplied value and the playing time.</p></td><td><span class="label label-primary">Number Comparator</span><br><br><code>equals - Check if numbers are exact match.</code>,<br><code>less than - Check if the supplied value is less than the playing time.</code>,<br><code>less than equal - Check if the supplied value is less than, or equal, to the playing time.</code>,<br><code>greater than - Check if the supplied value is greater than the playing time.</code>,<br><code>greater than equal - Check if the supplied value is greater than, or equal, to the playing time.</code><br></td><td><code>equals</code></td></tr><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td><td></td></tr></tbody></table></div></span><span><h2>Spawn Reason Check</h2><p>This check is used to check the spawn reason of a spawn event.</p>{% highlight xml %}
+{% endhighlight %}<br><h4>Element Text</h4><table class="table table-condensed"><thead><tr><td>Description</td><td>Type</td></tr></thead><tbody><tr><td class="width: 65%"><p>The time to check against.</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td></tr></tbody></table><div class="table-responsive"><h5>Time Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td><td>Default</td></tr></thead><tbody><tr class="info"><td><code>compare</code></td><td class="width: 65%"><p>The comparator which is used to compare the supplied value and the playing time.</p></td><td><span class="label label-primary">Number Comparator</span><br><br><code>equals - Check if numbers are exact match.</code>,<br><code>less than - Check if the supplied value is less than the playing time.</code>,<br><code>less than equal - Check if the supplied value is less than, or equal, to the playing time.</code>,<br><code>greater than - Check if the supplied value is greater than the playing time.</code>,<br><code>greater than equal - Check if the supplied value is greater than, or equal, to the playing time.</code><br></td><td><code>equals</code></td></tr><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td><td></td></tr></tbody></table></div></span><span><h2>Kill Streak Check</h2><p>This check is used to query information about the amount of kills a player has gotten in a row.</p>{% highlight xml %}
+<checks>
+  <kill-streak id="hey" scope="life">1-4</kill-streak>
+</checks>
+{% endhighlight %}<br><div class="table-responsive"><h5>Kill Streak Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr class="info"><td><code>scope</code></td><td class="width: 65%"><p>Scope to use when checking streak.</p></td><td><span class="label label-primary">Scope</span><br><br><code>life</code>,<code>match</code></td></tr><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Entity Check</h2><p>This check can be used to query information about the type of entity involved in an event.</p>{% highlight xml %}
 <checks>
   ...
-  <spawn id="spawneggs">spawner egg</spawn>
+  <entity id="piggy">pig</entity>
 </checks>
-{% endhighlight %}<br><h4>Element Text</h4><table class="table table-condensed"><thead><tr><td>Description</td><td>Type</td></tr></thead><tbody><tr><td class="width: 65%"><p>Reason to check for.</p></td><td><span class="label label-primary">SpawnReason</span><br><a href="https://hub.spigotmc.org/javadocs/spigot/org/bukkit/event/entity/SpawnReason.html">Possible Values</a></td></tr></tbody></table><div class="table-responsive"><h5>Spawn Reason Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Flying Check</h2><p>This check is used to check if a player is flying.</p>{% highlight xml %}
+{% endhighlight %}<br><h4>Element Text</h4><table class="table table-condensed"><thead><tr><td>Description</td><td>Type</td></tr></thead><tbody><tr><td class="width: 65%"><p>The type of entity to check for.</p></td><td><span class="label label-primary">EntityType</span><br><a href="https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/EntityType.html">Possible Values</a></td></tr></tbody></table><div class="table-responsive"><h5>Entity Check Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr></tbody></table></div></span><span><h2>Flying Check</h2><p>This check is used to check if a player is flying.</p>{% highlight xml %}
 <checks>
   ...
   <flying id="fly" />
