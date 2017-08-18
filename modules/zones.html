@@ -4,56 +4,14 @@ title: Zones
 permalink: /modules/zones
 ---
 
-<span><h1>Zones</h1><p>Zones are representations of locations in the match world that have special attributes and conditions that happen inside of them.</p><span><h2>Root Zone</h2><p>All zones should be wrapped inside of this tag.</p>{% highlight xml %}
+<span><h1>Zones<small>{% ihighlight xml %}<zones>{% endihighlight %}</small></h1><p>Zones are representations of locations in the match world that have special attributes and conditions that happen inside of them.</p><span><h2>Root Zone<small>{% ihighlight xml %}<zone>{% endihighlight %}</small></h2><p>All zones should be wrapped inside of this tag.</p>{% highlight xml %}
 <zones>...</zones>
-{% endhighlight %}<br><div class="table-responsive"><h5>Root Zone Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr class="info"><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr><tr><td><code>loadout</code></td><td class="width: 65%"><p>The id of the loadout for reference.</p></td><td><span class="label label-primary">Loadout ID</span></td></tr><tr><td><code>velocity</code></td><td class="width: 65%"><p>Velocity that should be applied to the player when they enter the zone.</p></td><td><span class="label label-primary">X,Y,Z Vector (With Decimals)</span></td></tr><tr class="info"><td><code>push</code></td><td class="width: 65%"><p>How far forward the player should go.</p></td><td><span class="label label-primary">Number (With Decimal)</span></td></tr><tr class="info"><td><code>icarus</code></td><td class="width: 65%"><p>How high the player should go.</p></td><td><span class="label label-primary">Number (With Decimal)</span></td></tr></tbody></table></div><span><h3>Failure Message</h3><p>This defines the message that is displayed if a player tries to do something they cannot.</p>{% highlight xml %}
-<message format="warning">{errors.outside-map}</message>
-{% endhighlight %}<br><br><div class="table-responsive"><h5>Format Types</h5><table class="table table-condensed"><thead><tr><td>Name</td><td>Format</td></tr></thead><tbody><tr><td>info</td><td>✳ MESSAGE</td></tr><tr><td>warning [default]</td><td>⚠ MESSAGE</td></tr><tr><td>none</td><td>MESSAGE</td></tr></tbody></table></div><br></span></span><span><h2>Checks</h2><p>Checks can be applied to various action in the zone.</p><p>These can either be defined as IDs in the parent tag or as sub tags with the same name.</p>{% highlight xml %}
+{% endhighlight %}<br><div class="table-responsive"><h5>Root Zone Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr class="info"><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr><tr><td><code>loadout</code></td><td class="width: 65%"><p>The id of the loadout for reference.</p></td><td><span class="label label-primary">Loadout ID</span></td></tr><tr><td><code>velocity</code></td><td class="width: 65%"><p>Velocity that should be applied to the player when they enter the zone.</p></td><td><span class="label label-primary">X,Y,Z Vector (With Decimals)</span></td></tr><tr class="info"><td><code>push</code></td><td class="width: 65%"><p>How far forward the player should go.</p></td><td><span class="label label-primary">Number (With Decimal)</span></td></tr><tr class="info"><td><code>icarus</code></td><td class="width: 65%"><p>How high the player should go.</p></td><td><span class="label label-primary">Number (With Decimal)</span></td></tr></tbody></table></div><span><h3>Checks<small>{% ihighlight xml %}<break>{% endihighlight %}{% ihighlight xml %}<enter>{% endihighlight %}{% ihighlight xml %}<leave>{% endihighlight %}{% ihighlight xml %}<modify>{% endihighlight %}{% ihighlight xml %}<place>{% endihighlight %}{% ihighlight xml %}<use>{% endihighlight %}</small></h3><p>Checks can be applied to various action in the zone.</p><p>These can either be defined as IDs in the parent tag or as sub tags with the same name.</p>{% highlight xml %}
 <checks>
   <team id="redteam">red</team>
   <!--Checks if the player is on Red Team-->
 </checks>
-{% endhighlight %}<br><span><h3>Enter Check</h3><p>This check is applied to all players before they are allowed to enter the zone.</p>{% highlight xml %}
-<zone enter="redteam">
-  <!--Only Red Team can enter-->
-  <region>
-    <join>
-      <cuboid min="108, 0, 246" max="96, 30, 258" />
-      <cuboid min="42, 0, 246" max="30, 30, 258" />
-    </join>
-  </region>
-</zone>
-{% endhighlight %}<br></span><span><h3>Leave Check</h3><p>This check is applied to all players before they are allowed to leave the zone..</p>{% highlight xml %}
-<zone leave="redteam">
-  <!--Only Red Team can leave-->
-  <region>
-    <join>
-      <cuboid min="108, 0, 246" max="96, 30, 258" />
-      <cuboid min="42, 0, 246" max="30, 30, 258" />
-    </join>
-  </region>
-</zone>
-{% endhighlight %}<br></span><span><h3>Modify Check</h3><p>This check is applied to all players before they are allowed to place/break blocks and use items in the zone.</p>{% highlight xml %}
-<zone modify="redteam">
-  <!--Only Red Team can modify-->
-  <region>
-    <join>
-      <cuboid min="108, 0, 246" max="96, 30, 258" />
-      <cuboid min="42, 0, 246" max="30, 30, 258" />
-    </join>
-  </region>
-</zone>
-{% endhighlight %}<br></span><span><h3>Block Place Check</h3><p>This check is applied to all players before they are allowed to place blocks in the zone.</p>{% highlight xml %}
-<zone place="redteam">
-  <!--Only Red Team can place blocks-->
-  <region>
-    <join>
-      <cuboid min="108, 0, 246" max="96, 30, 258" />
-      <cuboid min="42, 0, 246" max="30, 30, 258" />
-    </join>
-  </region>
-</zone>
-{% endhighlight %}<br></span><span><h3>Block Break Check</h3><p>This check is applied to all players before they are allowed to break blocks in the zone</p>{% highlight xml %}
+{% endhighlight %}<br><span><h3>Block Break Check<small>{% ihighlight xml %}<break>{% endihighlight %}</small></h3><p>This check is applied to all players before they are allowed to break blocks in the zone</p>{% highlight xml %}
 <zone break="redteam">
   <!--Only Red Team can break blocks-->
   <region>
@@ -63,7 +21,47 @@ permalink: /modules/zones
     </join>
   </region>
 </zone>
-{% endhighlight %}<br></span><span><h3>Use Check</h3><p>This check is applied to all players before they are allowed to use items (such as buckets) in the zone.</p>{% highlight xml %}
+{% endhighlight %}<br></span><span><h3>Block Place Check<small>{% ihighlight xml %}<place>{% endihighlight %}</small></h3><p>This check is applied to all players before they are allowed to place blocks in the zone.</p>{% highlight xml %}
+<zone place="redteam">
+  <!--Only Red Team can place blocks-->
+  <region>
+    <join>
+      <cuboid min="108, 0, 246" max="96, 30, 258" />
+      <cuboid min="42, 0, 246" max="30, 30, 258" />
+    </join>
+  </region>
+</zone>
+{% endhighlight %}<br></span><span><h3>Enter Check<small>{% ihighlight xml %}<enter>{% endihighlight %}</small></h3><p>This check is applied to all players before they are allowed to enter the zone.</p>{% highlight xml %}
+<zone enter="redteam">
+  <!--Only Red Team can enter-->
+  <region>
+    <join>
+      <cuboid min="108, 0, 246" max="96, 30, 258" />
+      <cuboid min="42, 0, 246" max="30, 30, 258" />
+    </join>
+  </region>
+</zone>
+{% endhighlight %}<br></span><span><h3>Leave Check<small>{% ihighlight xml %}<leave>{% endihighlight %}</small></h3><p>This check is applied to all players before they are allowed to leave the zone..</p>{% highlight xml %}
+<zone leave="redteam">
+  <!--Only Red Team can leave-->
+  <region>
+    <join>
+      <cuboid min="108, 0, 246" max="96, 30, 258" />
+      <cuboid min="42, 0, 246" max="30, 30, 258" />
+    </join>
+  </region>
+</zone>
+{% endhighlight %}<br></span><span><h3>Modify Check<small>{% ihighlight xml %}<modify>{% endihighlight %}</small></h3><p>This check is applied to all players before they are allowed to place/break blocks and use items in the zone.</p>{% highlight xml %}
+<zone modify="redteam">
+  <!--Only Red Team can modify-->
+  <region>
+    <join>
+      <cuboid min="108, 0, 246" max="96, 30, 258" />
+      <cuboid min="42, 0, 246" max="30, 30, 258" />
+    </join>
+  </region>
+</zone>
+{% endhighlight %}<br></span><span><h3>Use Check<small>{% ihighlight xml %}<use>{% endihighlight %}</small></h3><p>This check is applied to all players before they are allowed to use items (such as buckets) in the zone.</p>{% highlight xml %}
 <zone use="redteam">
   <!--Only Red Team can use items-->
   <region>
@@ -73,63 +71,7 @@ permalink: /modules/zones
     </join>
   </region>
 </zone>
-{% endhighlight %}<br></span></span><span><h2>Liquid Rules</h2><p>Liquid rules are used to modify how liquids behave in this zone.</p>{% highlight xml %}
-<zone water-rule="no-flow" />
-
-<zone lava-rule="no-flow" />
-{% endhighlight %}<br><span><h3>Water Rule</h3><p>This rule is used to change how water flows</p>{% highlight xml %}
-<zone water-rule="no-flow" modify="never">
-  <region>
-    <join>
-      <cuboid min="-368, 13, 170" max="-368, 14, 171" />
-    </join>
-  </region>
-  <message>{errors.cannot-build}</message>
-</zone>
-{% endhighlight %}<br><div class="table-responsive"><h5>Water Rule Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr class="info"><td><code>water-rule</code></td><td class="width: 65%"><p>The liquid rule that should be used.</p></td><td><span class="label label-primary">Liquid Rule</span><br><br><code>only enter</code>,<code>only exit</code>,<code>no flow</code></td></tr></tbody></table></div></span><span><h3>Lava Rule</h3><p>This rule is used to change how lava flows</p>{% highlight xml %}
-<zone lava-rule="no-flow" modify="never">
-  <region>
-    <join>
-      <cuboid min="-368, 13, 170" max="-368, 14, 171" />
-    </join>
-  </region>
-  <message>{errors.cannot-build}</message>
-</zone>
-{% endhighlight %}<br><div class="table-responsive"><h5>Lava Rule Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr class="info"><td><code>lava-rule</code></td><td class="width: 65%"><p>The liquid rule that should be used.</p></td><td><span class="label label-primary">Liquid Rule</span><br><br><code>only enter</code>,<code>only exit</code>,<code>no flow</code></td></tr></tbody></table></div></span></span><span><h2>Portals</h2><p>Portals teleport players to locations on the map when they are entered.</p>{% highlight xml %}
-<portal yaw="-90">
-  <destination>
-    <point>-29, 67, -31</point>
-  </destination>
-</portal>
-{% endhighlight %}<br><div class="table-responsive"><h5>Portals Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td><td>Default</td></tr></thead><tbody><tr class="info"><td><code>destination</code></td><td class="width: 65%"><p>The destination of the portal.</p><p>This can either be in ID form, or as a nested XML tag in the syntax of a region.</p></td><td><span class="label label-primary">Region</span></td><td></td></tr><tr><td><code>check</code></td><td class="width: 65%"><p>Check that should be ran to determine if the player should be teleported.</p><p>This can either be in ID form, or as a nested XML tag in the syntax of a check.</p></td><td><span class="label label-primary">Check</span></td><td></td></tr><tr><td><code>sound</code></td><td class="width: 65%"><p>If the enderman teleport sound should be played on teleport.</p></td><td><span class="label label-primary">True/False</span></td><td><code>true</code></td></tr><tr><td><code>reset-velocity</code></td><td class="width: 65%"><p>If the player's velocity should be reset when they are teleported.</p></td><td><span class="label label-primary">True/False</span></td><td><code>true</code></td></tr><tr><td><code>heal</code></td><td class="width: 65%"><p>If the player should be healed to max health after they are teleported.</p></td><td><span class="label label-primary">True/False</span></td><td><code>false</code></td></tr><tr><td><code>feed</code></td><td class="width: 65%"><p>If the player should be fed after they are teleported.</p></td><td><span class="label label-primary">True/False</span></td><td><code>false</code></td></tr><tr><td><code>look</code></td><td class="width: 65%"><p>Location the player should be facing when they leave the portal.</p></td><td><span class="label label-primary">X,Y,Z Vector (With Decimals)</span></td><td></td></tr><tr><td><code>yaw</code></td><td class="width: 65%"><p>Yaw of the player when they are teleported.</p></td><td><span class="label label-primary">Number (With Decimal)</span></td><td></td></tr><tr><td><code>pitch</code></td><td class="width: 65%"><p>Pitch of the player when they are teleported.</p></td><td><span class="label label-primary">Number (With Decimal)</span></td><td></td></tr></tbody></table></div></span><span><h2>TNT Customization</h2><p>These elements allow various TNT mechanics to be customized within the zone.</p><table class="table table-condensed"><thead><tr><td>Specification</td><td>Changes</td></tr></thead><tbody><tr class="bg-success"><td>1.0.2<td>ADDED</td></td></tr></tbody></table>{% highlight xml %}
-<zone region="playable">
-  <tnt>
-    <yield>0</yield>
-    <!-- TNT drops nothing -->
-    <dispenser nuke-limit="70" nuke-multiplier="2.5" />
-  </tnt>
-</zone>
-{% endhighlight %}<br><span><h3>TNT Yield</h3><p>The amount of items dropped by the explosion as a percentage</p>{% highlight xml %}
-<yield>0</yield>
-
-<!-- TNT drops nothing -->
-{% endhighlight %}<br><h4>Element Text</h4><table class="table table-condensed"><thead><tr><td>Description</td><td>Type</td><td>Default</td></tr></thead><tbody><tr><td class="width: 65%"><p>Yield of the TNT</p></td><td><span class="label label-primary">Number (With Decimal)</span></td><td><code>0.25</code></td></tr></tbody></table></span><span><h3>Instant Ignite</h3><p>If tha when TNT is placed, that it should instantly become primed.</p>{% highlight xml %}
-<instant-ignite />
-
-<!--Immediately becomes primed once placed-->
-{% endhighlight %}<br><h4>Element Text</h4><table class="table table-condensed"><thead><tr><td>Description</td><td>Type</td><td>Default</td></tr></thead><tbody><tr><td class="width: 65%"><p>If instant ignite is enabled</p></td><td><span class="label label-primary">True/False</span></td><td><code>false</code></td></tr></tbody></table></span><span><h3>TNT Power</h3><p>Modify the explosion's block radius.</p>{% highlight xml %}
-<power>70</power>
-
-<!--Explosion radius of 70-->
-{% endhighlight %}<br><h4>Element Text</h4><table class="table table-condensed"><thead><tr><td>Description</td><td>Type</td><td>Default</td></tr></thead><tbody><tr><td class="width: 65%"><p>explosion's block radius</p></td><td><span class="label label-primary">Number (With Decimal)</span></td><td><code>The default minecraft logic</code></td></tr></tbody></table></span><span><h3>TNT Fuse</h3><p>Time until the TNT explodes once it is ignited.</p>{% highlight xml %}
-<fuse>1m</fuse>
-
-<!--One Minute till TNT explodes-->
-{% endhighlight %}<br><h4>Element Text</h4><table class="table table-condensed"><thead><tr><td>Description</td><td>Type</td><td>Default</td></tr></thead><tbody><tr><td class="width: 65%"><p>fuse</p><p>This attribute denotes a period of time and can either be in seconds or in a period format.</p><p>Formats are as follows:</p><p>    d - days</p><p>    h - hours</p><p>    m - minutes</p><p>    s - seconds</p><p>These can be combined to create any period. No spaces are allowed.</p></td><td><span class="label label-primary">Duration</span></td><td><code>10s</code></td></tr></tbody></table></span><span><h3>Dispenser Properties</h3><p>Options for dispensers when they are blown up.</p>{% highlight xml %}
-<dispenser nuke-limit="70" nuke-multiplier="2.5" />
-
-<!--When a dispenser full of TNT blows up, the TNT inside of the dispenser (limit of 70) blows up-->
-{% endhighlight %}<br><div class="table-responsive"><h5>Dispenser Properties Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr class="info"><td><code>nuke-limit</code></td><td class="width: 65%"><p>Max amount of TNT a dispenser ignites when blown up.</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td></tr><tr class="info"><td><code>nuke-multiplier</code></td><td class="width: 65%"><p>Multiplier for the amount of TNT ignited when a dispenser is blown up.</p></td><td><span class="label label-primary">Number</span></td></tr></tbody></table></div></span></span><span><h2>Executor Triggers</h2><p>This can be used to run specific executors based on actions that happen in relation to the zone.</p><table class="table table-condensed"><thead><tr><td>Specification</td><td>Changes</td></tr></thead><tbody><tr class="bg-success"><td>1.0.4<td>ADDED</td></td></tr></tbody></table>{% highlight xml %}
+{% endhighlight %}<br></span></span><span><h3>Executor Triggers<small>{% ihighlight xml %}<triggers>{% endihighlight %}</small></h3><p>This can be used to run specific executors based on actions that happen in relation to the zone.</p><table class="table table-condensed"><thead><tr><td>Specification</td><td>Changes</td></tr></thead><tbody><tr class="bg-success"><td>1.0.4<td>ADDED</td></td></tr></tbody></table>{% highlight xml %}
 <zone>
   <region>
     <cuboid id="middle" min="50,117,-768" max="52,120,-766" />
@@ -142,4 +84,76 @@ permalink: /modules/zones
   <triggers enter="give-items" />
   <!--Once you enter the Region, the entry check is triggered and give-items is registered-->
 </zone>
-{% endhighlight %}<br><div class="table-responsive"><h5>Executor Triggers Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>enter</code></td><td class="width: 65%"><p>Runs when a player enters the zone region. Checks can use anything related to players.</p><p>The id of the executor for reference.</p></td><td><span class="label label-primary">Executor ID</span></td></tr><tr><td><code>exit</code></td><td class="width: 65%"><p>Runs when a player exits the zone region. Checks can use anything related to players.</p><p>The id of the executor for reference.</p></td><td><span class="label label-primary">Executor ID</span></td></tr><tr><td><code>break</code></td><td class="width: 65%"><p>Runs when a block is broken in the zone region. If a player broke a block, checks can use it. If an entity broke the block, checks have access to the entity. Checks also have access to the material of the block broken</p><p>The id of the executor for reference.</p></td><td><span class="label label-primary">Executor ID</span></td></tr><tr><td><code>place</code></td><td class="width: 65%"><p>Runs when a block is placed in the zone region. Checks can use anything related to players and materials.</p><p>The id of the executor for reference.</p></td><td><span class="label label-primary">Executor ID</span></td></tr><tr><td><code>use</code></td><td class="width: 65%"><p>Runs when a bucket is used in the zone region. Checks can use anything related to players and materials.</p><p>The id of the executor for reference.</p></td><td><span class="label label-primary">Executor ID</span></td></tr><tr><td><code>modify</code></td><td class="width: 65%"><p>Runs when a block is modified in the zone region. Checks can use the same things as with the break/place triggers.</p><p>The id of the executor for reference.</p></td><td><span class="label label-primary">Executor ID</span></td></tr></tbody></table></div></span></span>
+{% endhighlight %}<br><div class="table-responsive"><h5>Executor Triggers Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>enter</code></td><td class="width: 65%"><p>Runs when a player enters the zone region. Checks can use anything related to players.</p><p>The id of the executor for reference.</p></td><td><span class="label label-primary">Executor ID</span></td></tr><tr><td><code>exit</code></td><td class="width: 65%"><p>Runs when a player exits the zone region. Checks can use anything related to players.</p><p>The id of the executor for reference.</p></td><td><span class="label label-primary">Executor ID</span></td></tr><tr><td><code>break</code></td><td class="width: 65%"><p>Runs when a block is broken in the zone region. If a player broke a block, checks can use it. If an entity broke the block, checks have access to the entity. Checks also have access to the material of the block broken</p><p>The id of the executor for reference.</p></td><td><span class="label label-primary">Executor ID</span></td></tr><tr><td><code>place</code></td><td class="width: 65%"><p>Runs when a block is placed in the zone region. Checks can use anything related to players and materials.</p><p>The id of the executor for reference.</p></td><td><span class="label label-primary">Executor ID</span></td></tr><tr><td><code>use</code></td><td class="width: 65%"><p>Runs when a bucket is used in the zone region. Checks can use anything related to players and materials.</p><p>The id of the executor for reference.</p></td><td><span class="label label-primary">Executor ID</span></td></tr><tr><td><code>modify</code></td><td class="width: 65%"><p>Runs when a block is modified in the zone region. Checks can use the same things as with the break/place triggers.</p><p>The id of the executor for reference.</p></td><td><span class="label label-primary">Executor ID</span></td></tr></tbody></table></div></span><span><h3>Failure Message<small>{% ihighlight xml %}<message>{% endihighlight %}</small></h3><p>This defines the message that is displayed if a player tries to do something they cannot.</p>{% highlight xml %}
+<message format="warning">{errors.outside-map}</message>
+{% endhighlight %}<br><br><div class="table-responsive"><h5>Format Types</h5><table class="table table-condensed"><thead><tr><td>Name</td><td>Format</td></tr></thead><tbody><tr><td>info</td><td>✳ MESSAGE</td></tr><tr><td>warning [default]</td><td>⚠ MESSAGE</td></tr><tr><td>none</td><td>MESSAGE</td></tr></tbody></table></div><br></span><span><h3>Flag Capture Net<small>{% ihighlight xml %}<net>{% endihighlight %}</small></h3><code>REQUIREMENT:</code>This feature requires the <a href="/modules/objectives">Objectives Module</a>.<br><br><p>Nets are locations that flags can be captured at. A flag can have multiple net possibilities, and nets do not have to be bound to teams.</p>{% highlight xml %}
+<net owner="blue" points="1" respawn-togather="true">
+  <!-- Flag IDs -->
+  <flag>red-1</flag>
+  <flag>red-2</flag>
+</net>
+{% endhighlight %}<br><div class="table-responsive"><h5>Flag Capture Net Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td><td>Default</td></tr></thead><tbody><tr><td><code>owner</code></td><td class="width: 65%"><p>The id of the flag owner for reference.</p></td><td><span class="label label-primary">Flag Owner ID</span></td><td></td></tr><tr><td><code>points</code></td><td class="width: 65%"><p>Points to be rewarded to the player who captures the flag.</p></td><td><span class="label label-primary">Number</span></td><td></td></tr><tr><td><code>check</code></td><td class="width: 65%"><p>Check that should be ran to determine if the player can capture the flag at this net.</p><p>This can either be in ID form, or as a nested XML tag in the syntax of a check.</p></td><td><span class="label label-primary">Check</span></td><td></td></tr><tr><td><code>respawn-together</code></td><td class="width: 65%"><p>If all of the flags enclosed by the flags element should wait until all are captured to respawn, or respawn directly after capture.</p></td><td><span class="label label-primary">True/False</span></td><td><code>false</code></td></tr><tr><td><code>respawn-post</code></td><td class="width: 65%"><p>The id of the flag post for reference.</p></td><td><span class="label label-primary">Flag Post ID</span></td><td></td></tr></tbody></table></div></span><span><h3>Flag Post<small>{% ihighlight xml %}<post>{% endihighlight %}</small></h3><code>REQUIREMENT:</code>This feature requires the <a href="/modules/objectives">Objectives Module</a>.<br><br><p>These define where flags should be placed.</p>{% highlight xml %}
+<post yaw="90" />
+{% endhighlight %}<br><div class="table-responsive"><h5>Flag Post Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>yaw</code></td><td class="width: 65%"><p>Yaw of the flag.</p></td><td><span class="label label-primary">Number (With Decimal)</span></td></tr><tr><td><code>check</code></td><td class="width: 65%"><p>Check that should be ran before a player can pick up the flag.</p><p>This can either be in ID form, or as a nested XML tag in the syntax of a check.</p></td><td><span class="label label-primary">Check</span></td></tr></tbody></table></div></span><span><h3>Liquid Rules<small></small></h3><p>Liquid rules are used to modify how liquids behave in this zone.</p>{% highlight xml %}
+<zone water-rule="no-flow" />
+
+<zone lava-rule="no-flow" />
+{% endhighlight %}<br><span><h3>Lava Rule<small></small></h3><p>This rule is used to change how lava flows</p>{% highlight xml %}
+<zone lava-rule="no-flow" modify="never">
+  <region>
+    <join>
+      <cuboid min="-368, 13, 170" max="-368, 14, 171" />
+    </join>
+  </region>
+  <message>{errors.cannot-build}</message>
+</zone>
+{% endhighlight %}<br><div class="table-responsive"><h5>Lava Rule Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr class="info"><td><code>lava-rule</code></td><td class="width: 65%"><p>The liquid rule that should be used.</p></td><td><span class="label label-primary">Liquid Rule</span><br><br><code>only enter</code>,<code>only exit</code>,<code>no flow</code></td></tr></tbody></table></div></span><span><h3>Water Rule<small></small></h3><p>This rule is used to change how water flows</p>{% highlight xml %}
+<zone water-rule="no-flow" modify="never">
+  <region>
+    <join>
+      <cuboid min="-368, 13, 170" max="-368, 14, 171" />
+    </join>
+  </region>
+  <message>{errors.cannot-build}</message>
+</zone>
+{% endhighlight %}<br><div class="table-responsive"><h5>Water Rule Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr class="info"><td><code>water-rule</code></td><td class="width: 65%"><p>The liquid rule that should be used.</p></td><td><span class="label label-primary">Liquid Rule</span><br><br><code>only enter</code>,<code>only exit</code>,<code>no flow</code></td></tr></tbody></table></div></span></span><span><h3>Portals<small>{% ihighlight xml %}<portal>{% endihighlight %}</small></h3><p>Portals teleport players to locations on the map when they are entered.</p>{% highlight xml %}
+<portal yaw="-90">
+  <destination>
+    <point>-29, 67, -31</point>
+  </destination>
+</portal>
+{% endhighlight %}<br><div class="table-responsive"><h5>Portals Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td><td>Default</td></tr></thead><tbody><tr class="info"><td><code>destination</code></td><td class="width: 65%"><p>The destination of the portal.</p><p>This can either be in ID form, or as a nested XML tag in the syntax of a region.</p></td><td><span class="label label-primary">Region</span></td><td></td></tr><tr><td><code>check</code></td><td class="width: 65%"><p>Check that should be ran to determine if the player should be teleported.</p><p>This can either be in ID form, or as a nested XML tag in the syntax of a check.</p></td><td><span class="label label-primary">Check</span></td><td></td></tr><tr><td><code>sound</code></td><td class="width: 65%"><p>If the enderman teleport sound should be played on teleport.</p></td><td><span class="label label-primary">True/False</span></td><td><code>true</code></td></tr><tr><td><code>reset-velocity</code></td><td class="width: 65%"><p>If the player's velocity should be reset when they are teleported.</p></td><td><span class="label label-primary">True/False</span></td><td><code>true</code></td></tr><tr><td><code>heal</code></td><td class="width: 65%"><p>If the player should be healed to max health after they are teleported.</p></td><td><span class="label label-primary">True/False</span></td><td><code>false</code></td></tr><tr><td><code>feed</code></td><td class="width: 65%"><p>If the player should be fed after they are teleported.</p></td><td><span class="label label-primary">True/False</span></td><td><code>false</code></td></tr><tr><td><code>look</code></td><td class="width: 65%"><p>Location the player should be facing when they leave the portal.</p></td><td><span class="label label-primary">X,Y,Z Vector (With Decimals)</span></td><td></td></tr><tr><td><code>yaw</code></td><td class="width: 65%"><p>Yaw of the player when they are teleported.</p></td><td><span class="label label-primary">Number (With Decimal)</span></td><td></td></tr><tr><td><code>pitch</code></td><td class="width: 65%"><p>Pitch of the player when they are teleported.</p></td><td><span class="label label-primary">Number (With Decimal)</span></td><td></td></tr></tbody></table></div></span><span><h3>Score Box<small>{% ihighlight xml %}<scorebox>{% endihighlight %}</small></h3><code>REQUIREMENT:</code>This feature requires the <a href="/modules/objectives">Objectives Module</a>.<br><br><p>Score boxes are areas in which players enter to earn points.</p>{% highlight xml %}
+<scorebox points="2" />
+{% endhighlight %}<br><div class="table-responsive"><h5>Score Box Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td><td>Default</td></tr></thead><tbody><tr class="info"><td><code>points</code></td><td class="width: 65%"><p>The amount of points that this score box rewards.</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td><td></td></tr><tr><td><code>action</code></td><td class="width: 65%"><p>The action which is applied to the player's score.</p></td><td><span class="label label-primary">Number Action</span><br><br><code>none - Perform no action and keep the player's score the same.</code>,<br><code>set - Set the player's score to the supplied number.</code>,<br><code>add - Add the supplied number to the player's score.</code>,<br><code>subtract - Subtract the supplied number from the player's score.</code>,<br><code>multiply - Multiply the supplied number with the player's score.</code>,<br><code>divide - Divide the player's score by the supplied number.</code>,<br><code>power - Raise the player's score by the supplied number.</code><br></td><td><code>set</code></td></tr><tr><td><code>points-growth</code></td><td class="width: 65%"><p>The multiplier used for points each time this score box is entered.</p></td><td><span class="label label-primary">Number (With Decimal)</span></td><td></td></tr><tr><td><code>check</code></td><td class="width: 65%"><p>Check that should be ran before points are rewarded.</p><p>This can either be in ID form, or as a nested XML tag in the syntax of a check.</p></td><td><span class="label label-primary">Check</span></td><td></td></tr></tbody></table></div><span><h3>Item Rewards<small>{% ihighlight xml %}<item-rewards>{% endihighlight %}</small></h3><p>Item rewards allow score boxes to be configured to reward more points based on items in the player's inventory.</p>{% highlight xml %}
+<item-rewards>
+  <item points="1">cooked beef</item>
+</item-rewards>
+{% endhighlight %}<br><h4>Element Text</h4><table class="table table-condensed"><thead><tr><td>Description</td><td>Type</td></tr></thead><tbody><tr><td class="width: 65%"><p>The type of item that this matcher applies for.</p><p>A material is defined in the syntax of matname:damage when matname is the name of the material and damage is the damage value of the material.</p><p>A damage value is not required.</p></td><td><span class="label label-primary">Singular Material Matcher</span></td></tr></tbody></table><div class="table-responsive"><h5>Item Rewards Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr class="info"><td><code>points</code></td><td class="width: 65%"><p>The amount of points that should be rewarded for this item.</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td></tr></tbody></table></div></span></span><span><h3>TNT Customization<small>{% ihighlight xml %}<tnt>{% endihighlight %}</small></h3><p>These elements allow various TNT mechanics to be customized within the zone.</p><table class="table table-condensed"><thead><tr><td>Specification</td><td>Changes</td></tr></thead><tbody><tr class="bg-success"><td>1.0.2<td>ADDED</td></td></tr></tbody></table>{% highlight xml %}
+<zone region="playable">
+  <tnt>
+    <yield>0</yield>
+    <!-- TNT drops nothing -->
+    <dispenser nuke-limit="70" nuke-multiplier="2.5" />
+  </tnt>
+</zone>
+{% endhighlight %}<br><span><h3>Dispenser Properties<small>{% ihighlight xml %}<dispenser>{% endihighlight %}</small></h3><p>Options for dispensers when they are blown up.</p>{% highlight xml %}
+<dispenser nuke-limit="70" nuke-multiplier="2.5" />
+
+<!--When a dispenser full of TNT blows up, the TNT inside of the dispenser (limit of 70) blows up-->
+{% endhighlight %}<br><div class="table-responsive"><h5>Dispenser Properties Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr class="info"><td><code>nuke-limit</code></td><td class="width: 65%"><p>Max amount of TNT a dispenser ignites when blown up.</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td></tr><tr class="info"><td><code>nuke-multiplier</code></td><td class="width: 65%"><p>Multiplier for the amount of TNT ignited when a dispenser is blown up.</p></td><td><span class="label label-primary">Number</span></td></tr></tbody></table></div></span><span><h3>Instant Ignite<small>{% ihighlight xml %}<instant-ignite>{% endihighlight %}</small></h3><p>If tha when TNT is placed, that it should instantly become primed.</p>{% highlight xml %}
+<instant-ignite />
+
+<!--Immediately becomes primed once placed-->
+{% endhighlight %}<br><h4>Element Text</h4><table class="table table-condensed"><thead><tr><td>Description</td><td>Type</td><td>Default</td></tr></thead><tbody><tr><td class="width: 65%"><p>If instant ignite is enabled</p></td><td><span class="label label-primary">True/False</span></td><td><code>false</code></td></tr></tbody></table></span><span><h3>TNT Fuse<small>{% ihighlight xml %}<fuse>{% endihighlight %}</small></h3><p>Time until the TNT explodes once it is ignited.</p>{% highlight xml %}
+<fuse>1m</fuse>
+
+<!--One Minute till TNT explodes-->
+{% endhighlight %}<br><h4>Element Text</h4><table class="table table-condensed"><thead><tr><td>Description</td><td>Type</td><td>Default</td></tr></thead><tbody><tr><td class="width: 65%"><p>fuse</p><p>This attribute denotes a period of time and can either be in seconds or in a period format.</p><p>Formats are as follows:</p><p>    d - days</p><p>    h - hours</p><p>    m - minutes</p><p>    s - seconds</p><p>These can be combined to create any period. No spaces are allowed.</p></td><td><span class="label label-primary">Duration</span></td><td><code>10s</code></td></tr></tbody></table></span><span><h3>TNT Power<small>{% ihighlight xml %}<power>{% endihighlight %}</small></h3><p>Modify the explosion's block radius.</p>{% highlight xml %}
+<power>70</power>
+
+<!--Explosion radius of 70-->
+{% endhighlight %}<br><h4>Element Text</h4><table class="table table-condensed"><thead><tr><td>Description</td><td>Type</td><td>Default</td></tr></thead><tbody><tr><td class="width: 65%"><p>explosion's block radius</p></td><td><span class="label label-primary">Number (With Decimal)</span></td><td><code>The default minecraft logic</code></td></tr></tbody></table></span><span><h3>TNT Yield<small>{% ihighlight xml %}<yield>{% endihighlight %}</small></h3><p>The amount of items dropped by the explosion as a percentage</p>{% highlight xml %}
+<yield>0</yield>
+
+<!-- TNT drops nothing -->
+{% endhighlight %}<br><h4>Element Text</h4><table class="table table-condensed"><thead><tr><td>Description</td><td>Type</td><td>Default</td></tr></thead><tbody><tr><td class="width: 65%"><p>Yield of the TNT</p></td><td><span class="label label-primary">Number (With Decimal)</span></td><td><code>0.25</code></td></tr></tbody></table></span></span></span></span>

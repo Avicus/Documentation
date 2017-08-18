@@ -4,7 +4,25 @@ title: Remove, Repair, and Keep
 permalink: /modules/remove-repair-and-keep
 ---
 
-<span><h1>Remove, Repair, and Keep</h1><p>This module is used to modify which items are dropped, kept, and which tools are repaired when picked up.</p><span><h2>Remove Drops</h2><p>This feature is used to modify which items can be dropped by players/blocks.</p>{% highlight xml %}
+<span><h1>Remove, Repair, and Keep<small>{% ihighlight xml %}<items>{% endihighlight %}</small></h1><p>This module is used to modify which items are dropped, kept, and which tools are repaired when picked up.</p><span><h2>Keep Armor<small>{% ihighlight xml %}<keep-armor>{% endihighlight %}</small></h2><p>This feature is used to modify which armor are kept by players across lives.</p>{% highlight xml %}
+<items>
+  <!-- keep diamond helmet in inventory after death -->
+  <keep-armor>
+    <any>
+      <material>diamond helmet</material>
+    </any>
+  </keep-armor>
+</items>
+{% endhighlight %}<br><div class="table-responsive"><h5>Keep Armor Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr class="info"><td><code>check</code></td><td class="width: 65%"><p>Check that should be ran before armor is kept.</p><p>This can either be in ID form, or as a nested XML tag in the syntax of a check.</p></td><td><span class="label label-primary">Check</span></td></tr></tbody></table></div></span><span><h2>Keep Items<small>{% ihighlight xml %}<keep-items>{% endihighlight %}</small></h2><p>This feature is used to modify which items are kept by players across lives.</p>{% highlight xml %}
+<items>
+  <!-- keep diamond sword in inventory after death -->
+  <keep-items>
+    <any>
+      <material>diamond sword</material>
+    </any>
+  </keep-items>
+</items>
+{% endhighlight %}<br><div class="table-responsive"><h5>Keep Items Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr class="info"><td><code>check</code></td><td class="width: 65%"><p>Check that should be ran before an item is kept.</p><p>This can either be in ID form, or as a nested XML tag in the syntax of a check.</p></td><td><span class="label label-primary">Check</span></td></tr></tbody></table></div></span><span><h2>Remove Drops<small>{% ihighlight xml %}<remove-drops>{% endihighlight %}</small></h2><p>This feature is used to modify which items can be dropped by players/blocks.</p>{% highlight xml %}
 <items>
   <!-- remove all glass and wood when dropped -->
   <remove-drops>
@@ -14,25 +32,7 @@ permalink: /modules/remove-repair-and-keep
     </any>
   </remove-drops>
 </items>
-{% endhighlight %}<br><div class="table-responsive"><h5>Remove Drops Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr class="info"><td><code>check</code></td><td class="width: 65%"><p>Check that should be ran before an item is allowed to be dropped.</p><p>This can either be in ID form, or as a nested XML tag in the syntax of a check.</p></td><td><span class="label label-primary">Check</span></td></tr></tbody></table></div></span><span><h2>Keep Items</h2><p>This feature is used to modify which items are kept by players across lives.</p>{% highlight xml %}
-<items>
-  <!-- keep diamond sword in inventory after death -->
-  <keep-items>
-    <any>
-      <material>diamond sword</material>
-    </any>
-  </keep-items>
-</items>
-{% endhighlight %}<br><div class="table-responsive"><h5>Keep Items Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr class="info"><td><code>check</code></td><td class="width: 65%"><p>Check that should be ran before an item is kept.</p><p>This can either be in ID form, or as a nested XML tag in the syntax of a check.</p></td><td><span class="label label-primary">Check</span></td></tr></tbody></table></div></span><span><h2>Keep Armor</h2><p>This feature is used to modify which armor are kept by players across lives.</p>{% highlight xml %}
-<items>
-  <!-- keep diamond helmet in inventory after death -->
-  <keep-armor>
-    <any>
-      <material>diamond helmet</material>
-    </any>
-  </keep-armor>
-</items>
-{% endhighlight %}<br><div class="table-responsive"><h5>Keep Armor Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr class="info"><td><code>check</code></td><td class="width: 65%"><p>Check that should be ran before armor is kept.</p><p>This can either be in ID form, or as a nested XML tag in the syntax of a check.</p></td><td><span class="label label-primary">Check</span></td></tr></tbody></table></div></span><span><h2>Repair Tools</h2><p>This feature is used to modify which tools are repaired when a player picks up a matching tool.</p>{% highlight xml %}
+{% endhighlight %}<br><div class="table-responsive"><h5>Remove Drops Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr class="info"><td><code>check</code></td><td class="width: 65%"><p>Check that should be ran before an item is allowed to be dropped.</p><p>This can either be in ID form, or as a nested XML tag in the syntax of a check.</p></td><td><span class="label label-primary">Check</span></td></tr></tbody></table></div></span><span><h2>Repair Tools<small>{% ihighlight xml %}<repair-tools>{% endihighlight %}</small></h2><p>This feature is used to modify which tools are repaired when a player picks up a matching tool.</p>{% highlight xml %}
 <items>
   <repair-tools>
     <any>

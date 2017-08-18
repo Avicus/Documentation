@@ -4,7 +4,7 @@ title: Damage Modification
 permalink: /modules/damage-modification
 ---
 
-<span><h1>Damage Modification</h1><p>This module is used to modify the amount of damage caused by an action based on a check.</p><span><h2>Modifier</h2><p>This represents a check in relation to a damage type with a modifer and number action.</p><p>A specific damage type or `all` can be used to match all damage events.</p>{% highlight xml %}
+<span><h1>Damage Modification<small>{% ihighlight xml %}<modify-damage>{% endihighlight %}</small></h1><p>This module is used to modify the amount of damage caused by an action based on a check.</p><span><h2>Modifier<small>{% ihighlight xml %}<mod>{% endihighlight %}</small></h2><p>This represents a check in relation to a damage type with a modifer and number action.</p><p>A specific damage type or `all` can be used to match all damage events.</p>{% highlight xml %}
 <modify-damage>
   <mod mod="300" action="set">fall</mod>
   <!-- Fall damage is always deadly -->

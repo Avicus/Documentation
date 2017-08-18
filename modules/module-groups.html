@@ -4,7 +4,7 @@ title: Module Groups
 permalink: /modules/module-groups
 ---
 
-<span><h1>Module Groups</h1><p>Module groups allow groups of modules to be referenced by an ID and then loaded later based on various circumstances. The group ident elements must be at the top level but the load elements can be anywhere. These can be combined with conditionals.</p><p>An example use-case of this would be having a lot of different groups in an include file and then loading them in the XML.</p><span><h2>Group</h2>{% highlight xml %}
+<span><h1>Module Groups<small>{% ihighlight xml %}<load-group>{% endihighlight %}{% ihighlight xml %}<module-group>{% endihighlight %}</small></h1><p>Module groups allow groups of modules to be referenced by an ID and then loaded later based on various circumstances. The group ident elements must be at the top level but the load elements can be anywhere. These can be combined with conditionals.</p><p>An example use-case of this would be having a lot of different groups in an include file and then loading them in the XML.</p><span><h2>Group<small></small></h2>{% highlight xml %}
 <module-group id="vel-zone">
   <zone velocity="$vel">
     <region>
