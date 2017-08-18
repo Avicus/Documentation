@@ -1,0 +1,1832 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<examples>
+  <root-map-element>
+    <main-map-configuration>
+      <example>
+        <!--<?xml version="1.0" encoding="UTF-8"?> -->
+        <map name="Chopped" version="1.9.0" spec="1.0.4">...</map>
+      </example>
+      <game-types>
+        <example>
+          <gametype>dtm</gametype>
+        </example>
+      </game-types>
+    </main-map-configuration>
+  </root-map-element>
+  <authors-and-contributors>
+    <author>
+      <example>
+        <authors>
+          <author uuid="069a79f444e94726a5befca90e38aaf5" /> <!-- Notch -->
+          <author uuid="8242e55ecc6a458ab272a2b34918045f" role="Assistance with map design." /> <!-- funkystudios -->
+        </authors>
+      </example>
+    </author>
+    <organisation->
+      <example>
+        <authors>
+          <organization name="The Avicus Network" role="Server" promo="https://avicus.net"/>
+        </authors>
+      </example>
+    </organisation->
+  </authors-and-contributors>
+  <xml-includes>
+    <include>
+      <example>
+        <include src="defaults.xml"/> <!--Default-->
+        <include src="Shared/reward-one-arrow.xml"/> <!--One arrow on Kill-->
+      </example>
+    </include>
+  </xml-includes>
+  <xml-conditionals>
+    <conditional>
+      <example>
+        <loadouts>
+          <loadout id="default">
+            <!-- Speed 4 on April Fools Day -->
+            <conditional>
+              <if holiday="april-fools">
+                <effect duration="45s" amplifier="3">speed</effect>
+              </if>
+              <else>
+                <effect duration="45s">speed</effect>
+              </else>
+            </conditional>
+          </loadout>
+        </loadouts>
+      </example>
+    </conditional>
+  </xml-conditionals>
+  <module-groups>
+    <group>
+      <example>
+        <module-group id="vel-zone">
+          <zone velocity="$vel">
+            <region>
+              <cuboid min="$min" max="$max"/>
+            </region>
+          </zone>
+        </module-group>
+        <zones>
+          <load-group id="no-build"/>
+          <load-group id="vel-zone" vel="0, 3.3, 0" min="92, 65, 37" max="95, 66, 40"/>
+          <load-group id="vel-zone" vel="0, 3.8, 0" min="88, 65, 37" max="91, 66, 40"/>
+          <load-group id="vel-zone" vel="0, 2.8, 0" min="84, 65, 37" max="87, 66, 40"/>
+        </zones>
+      </example>
+    </group>
+  </module-groups>
+  <damage-module>
+    <damage>
+      <example>
+        <damage>
+          <disable>
+            <all>
+              <damage>fall</damage>
+              <inside>
+                <region>
+                  <above y="-1"/>
+                </region>
+              </inside>
+            </all>
+          </disable>
+        </damage>
+      </example>
+    </damage>
+  </damage-module>
+  <groups>
+    <teams>
+      <example>
+        <teams>
+          <team id="lime-team" color="lime" min="16" max="20">{lime}</team>
+          <team id="purple-team" color="purple" min="16" max="20">{purple}</team>
+        </teams>
+      </example>
+    </teams>
+    <ffa>
+      <example>
+        <ffa min="4" max="32"/>
+      </example>
+    </ffa>
+  </groups>
+  <facts-mvp-settings>
+    <disable-stats>
+      <example>
+        <disable-stats/>
+      </example>
+    </disable-stats>
+  </facts-mvp-settings>
+  <map-tutorials>
+    <tutorial-step>
+      <example>
+        <tutorial>
+          ...
+          <step freeze="false" countdown="5s" location="-43, 8, -116" yaw="-179" pitch="27">...</step>
+        </tutorial>
+      </example>
+      <chat>
+        <example>
+          <step>
+            ...
+            <chat>
+              <line>^r • {tutorial.generic.team-spawns}</line>
+            </chat>
+          </step>
+        </example>
+      </chat>
+      <title>
+        <example>
+          <step>
+            ...
+            <title stay="3s" subtitle="^a^l{tutorial.mixed.dtc-dtm.title}"/>
+          </step>
+        </example>
+      </title>
+      <inventory>
+        <example>
+          <step>
+            <inventory>
+              <item slot="0" material="iron sword"/>
+              <item slot="1" material="bow">
+                <enchantment>arrow_infinite</enchantment>
+              </item>
+            </inventory>
+          </step>
+        </example>
+      </inventory>
+    </tutorial-step>
+  </map-tutorials>
+  <elimination>
+    <configuration>
+      <example>
+        <elimination lives="3"/>
+      </example>
+    </configuration>
+  </elimination>
+  <chest-refill>
+    <chest-generator>
+      <example>
+        <chests>
+          <generator region="everywhere" min="3" max="10" regenerate-count="1" regenerate-countdown="1m">...</generator>
+        </chests>
+      </example>
+      <item-set>
+        <example>
+          <chest-items max="16" weight="4"> <!--Max amount of Arrows given = 16 and Weight is chance (Higher = More Chance)-->
+            <item material="arrow"/>
+          </chest-items>
+          <chest-items max="1" weight="3"> <!--Max amount of Bows given = 1 and Weight is chance-->
+            <item material="bow"/>
+          </chest-items>
+        </example>
+      </item-set>
+    </chest-generator>
+  </chest-refill>
+  <destroyable-phases>
+    <phase>
+      <example>
+        <phases countdown-message="{phases.transition}" fail-message="{phases.cores.fail}">
+          <phase id="gold" success-message="{phases.core.gold}" delay="25m" pass-phase="glass">...</phase> <!--Gold Core Phase-->
+        </phases>
+      </example>
+      <find-replace>
+        <example>
+          <phases countdown-message="{phases.transition}" fail-message="{phases.cores.fail}">
+            <phase id="gold" success-message="{phases.core.gold}" delay="25m" pass-phase="glass">
+              <materials>
+                <material find="obsidian" replace="gold block"/> <!--Replace Obsidian with Gold Block-->
+              </materials>
+            </phase>
+          </phases>
+        </example>
+      </find-replace>
+    </phase>
+  </destroyable-phases>
+  <zones>
+    <root-zone>
+      <example>
+        <zones>...</zones>
+      </example>
+      <failure-message>
+        <example>
+          <message format="warning">{errors.outside-map}</message>
+        </example>
+      </failure-message>
+      <checks>
+        <example>
+          <checks>
+            <team id="redteam">red</team> <!--Checks if the player is on Red Team-->
+          </checks>
+        </example>
+        <enter-check>
+          <example>
+            <zone enter="redteam"> <!--Only Red Team can enter-->
+              <region>
+                <join>
+                  <cuboid min="108, 0, 246" max="96, 30, 258"/>
+                  <cuboid min="42, 0, 246" max="30, 30, 258"/>
+                </join>
+              </region>
+            </zone>
+          </example>
+        </enter-check>
+        <leave-check>
+          <example>
+            <zone leave="redteam"> <!--Only Red Team can leave-->
+              <region>
+                <join>
+                  <cuboid min="108, 0, 246" max="96, 30, 258"/>
+                  <cuboid min="42, 0, 246" max="30, 30, 258"/>
+                </join>
+              </region>
+            </zone>
+          </example>
+        </leave-check>
+        <modify-check>
+          <example>
+            <zone modify="redteam"> <!--Only Red Team can modify-->
+              <region>
+                <join>
+                  <cuboid min="108, 0, 246" max="96, 30, 258"/>
+                  <cuboid min="42, 0, 246" max="30, 30, 258"/>
+                </join>
+              </region>
+            </zone>
+          </example>
+        </modify-check>
+        <block-place-check>
+          <example>
+            <zone place="redteam"> <!--Only Red Team can place blocks-->
+              <region>
+                <join>
+                  <cuboid min="108, 0, 246" max="96, 30, 258"/>
+                  <cuboid min="42, 0, 246" max="30, 30, 258"/>
+                </join>
+              </region>
+            </zone>
+          </example>
+        </block-place-check>
+        <block-break-check>
+          <example>
+            <zone break="redteam"> <!--Only Red Team can break blocks-->
+              <region>
+                <join>
+                  <cuboid min="108, 0, 246" max="96, 30, 258"/>
+                  <cuboid min="42, 0, 246" max="30, 30, 258"/>
+                </join>
+              </region>
+            </zone>
+          </example>
+        </block-break-check>
+        <use-check>
+          <example>
+            <zone use="redteam"> <!--Only Red Team can use items-->
+              <region>
+                <join>
+                  <cuboid min="108, 0, 246" max="96, 30, 258"/>
+                  <cuboid min="42, 0, 246" max="30, 30, 258"/>
+                </join>
+              </region>
+            </zone>
+          </example>
+        </use-check>
+      </checks>
+      <liquid-rules>
+        <example>
+          <zone water-rule="no-flow"/>
+          <zone lava-rule="no-flow"/>
+        </example>
+        <water-rule>
+          <example>
+            <zone water-rule="no-flow" modify="never">
+              <region>
+                <join>
+                  <cuboid min="-368, 13, 170" max="-368, 14, 171"/>
+                </join>
+              </region>
+              <message>{errors.cannot-build}</message>
+            </zone>
+          </example>
+        </water-rule>
+        <lava-rule>
+          <example>
+            <zone lava-rule="no-flow" modify="never">
+              <region>
+                <join>
+                  <cuboid min="-368, 13, 170" max="-368, 14, 171"/>
+                </join>
+              </region>
+              <message>{errors.cannot-build}</message>
+            </zone>
+          </example>
+        </lava-rule>
+      </liquid-rules>
+      <portals>
+        <example>
+          <portal yaw="-90">
+            <destination>
+              <point>-29, 67, -31</point>
+            </destination>
+          </portal>
+        </example>
+      </portals>
+      <score-box>
+        <example>
+          <scorebox points="2"/>
+        </example>
+        <item-rewards>
+          <example>
+            <item-rewards>
+  <item points="1">cooked beef</item>
+</item-rewards>
+          </example>
+        </item-rewards>
+      </score-box>
+      <flag-post>
+        <example>
+          <post yaw="90"/>
+        </example>
+      </flag-post>
+      <flag-capture-net>
+        <example>
+          <net owner="blue" points="1" respawn-togather="true">
+  <!-- Flag IDs -->
+  <flag>red-1</flag>
+  <flag>red-2</flag>
+</net>
+        </example>
+      </flag-capture-net>
+      <tnt-customization>
+        <example>
+          <zone region="playable">
+            <tnt>
+              <yield>0</yield> <!-- TNT drops nothing -->
+              <dispenser nuke-limit="70" nuke-multiplier="2.5"/>
+            </tnt>
+          </zone>
+        </example>
+        <tnt-yield>
+          <example>
+            <yield>0</yield> <!-- TNT drops nothing -->
+          </example>
+        </tnt-yield>
+        <instant-ignite>
+          <example>
+            <instant-ignite/> <!--Immediately becomes primed once placed-->
+          </example>
+        </instant-ignite>
+        <tnt-power>
+          <example>
+            <power>70</power> <!--Explosion radius of 70-->
+          </example>
+        </tnt-power>
+        <tnt-fuse>
+          <example>
+            <fuse>1m</fuse> <!--One Minute till TNT explodes-->
+          </example>
+        </tnt-fuse>
+        <dispenser-properties>
+          <example>
+            <dispenser nuke-limit="70" nuke-multiplier="2.5"/> <!--When a dispenser full of TNT blows up, the TNT inside of the dispenser (limit of 70) blows up-->
+          </example>
+        </dispenser-properties>
+      </tnt-customization>
+      <executor-triggers>
+        <example>
+          <zone>
+            <region>
+              <cuboid id="middle" min="50,117,-768" max="52,120,-766"/>
+            </region>
+            <portal>
+              <destination>
+                <point>138, 69, -290</point>
+              </destination>
+            </portal>
+            <triggers enter="give-items"/> <!--Once you enter the Region, the entry check is triggered and give-items is registered-->
+          </zone>
+        </example>
+      </executor-triggers>
+    </root-zone>
+  </zones>
+  <objectives>
+    <hill>
+      <example>
+        <objectives>
+          <hills capture-time="45s">
+            <hill name="Left Mountain">
+              <capture>
+                <cuboid min="50, 23, 50" max="75, 40, 75"/>
+              </capture>
+              <progress>
+                <circle center="62, 22, 62" radius="13"/>
+              </progress>
+            </hill>
+
+            <hill name="Right Mountain">
+              <capture>
+                <cuboid min="27, 23, 77" max="50, 40, 100"/>
+              </capture>
+              <progress>
+                <circle center="39, 27, 87" radius="13"/>
+              </progress>
+            </hill>
+          </hills>
+        </objectives>
+      </example>
+    </hill>
+    <score>
+      <example>
+        <scores kills="1"> <!--One Kill = One Point -->
+          <score team="yellow"/>
+          <score team="cyan"/>
+        </scores>
+      </example>
+    </score>
+    <wool>
+      <example>
+        <wools>
+          <wool color="blue">
+            <source>
+              <block>-138,32,87</block> <!--Wool Chest Location-->
+            </source>
+            <destination>
+              <block>149,30,4</block> <!--Capture Location-->
+            </destination>
+          </wool>
+        </wools>
+      </example>
+    </wool>
+    <flags>
+      <example>
+        <flag owner="red" post="red-post" color="red"/> <!--Owner = Defending Team / Post = Flag Location / Color=Flag Color-->
+        <zone id="red-post"> <!--Flag spawn location-->
+          <region>
+            <block>108, 13, -1</block>
+          </region>
+          <post yaw="90"/>
+        </zone>
+        <zone>  <!--Capture Location and Amount of Points Rewarded-->
+          <region>
+            <cuboid min="-8, 14, 1" max="-11, 16, -3"/>
+          </region>
+          <net points="1">
+            <capture-check>
+              <team>blue</team>
+            </capture-check>
+          </net>
+        </zone>
+      </example>
+    </flags>
+    <destroyables-and-leakables>
+      <example>
+        <leakables> <!--Cores/Leakables-->
+          <leakables owner="red">
+            <leakable name="Dojo" leak-distance="1" repairable="true">
+              <region>
+                <cuboid min="-93, 51, 174" max="-89, 57, 170"/>
+              </region>
+            </leakable>
+          </leakables>
+        </leakables>
+        <monuments materials="emerald block" destroyable="true" repairable="true"> <!--Monuments/Destroyables-->
+          <monuments owner="red">
+            <monument name="Left">
+              <region>
+                <cuboid min="-56, 47, 180" max="-54, 51, 178"/>
+              </region>
+            </monument>
+          </monuments>
+        </monuments>
+      </example>
+      <monuments>
+        <example>
+          <monuments materials="emerald block" destroyable="true" repairable="true">
+            <monuments owner="red"> <!--Defending Team-->
+              <monument name="Left"> <!--Scoreboard Name-->
+                <region>
+                  <cuboid min="-56, 47, 180" max="-54, 51, 178"/>
+                </region>
+              </monument>
+            </monuments>
+          </monuments>
+        </example>
+      </monuments>
+      <leakables>
+        <example>
+          <leakables> <!--Cores/Leakables-->
+            <leakables owner="red">
+              <leakable name="Dojo" leak-distance="1" repairable="true">
+                <region>
+                  <cuboid min="-93, 51, 174" max="-89, 57, 170"/>
+                </region>
+              </leakable>
+            </leakables>
+          </leakables>
+        </example>
+      </leakables>
+    </destroyables-and-leakables>
+    <last-competitor-standing>
+      <example>
+        <objectives>
+          <last-competitor-standing/>
+        </objectives>
+      </example>
+    </last-competitor-standing>
+    <last-team-standing>
+      <example>
+        <objectives>
+          <last-team-standing team="blue"/>
+          <last-team-standing team="red"/>
+        </objectives>
+      </example>
+    </last-team-standing>
+    <entity>
+      <example>
+        <objectives>
+          <entites>
+            <entity type="pig" points="1" name="Pigs" show="false"> <!--Pigs Count for Scoring -->
+              <region>
+                <cylinder radius="90" height="12" base="0, 0, 0"/>
+              </region>
+            </entity>
+          </entites>
+        </objectives>
+      </example>
+    </entity>
+  </objectives>
+  <world-modification>
+    <world-path>
+      <example>
+        <world path="some-path">....</world>
+      </example>
+    </world-path>
+    <game-rules>
+      <example>
+        <gamerules>
+          <doDaylightCycle>false</doDaylightCycle>
+          <doFireTick>false</doFireTick>
+        </gamerules>
+      </example>
+    </game-rules>
+    <mob-control>
+      <example>
+        <mobs>
+          <any>
+            <entity>cow</entity>
+            <all>
+              <entity>pig</entity>
+              <spawn>spawner egg</spawn>
+            </all>
+          </any>
+        </mobs>
+      </example>
+    </mob-control>
+    <weather-control>
+      <example>
+        <weather check="always"/>
+      </example>
+    </weather-control>
+    <storm-control>
+      <example>
+        <storm>false</storm>
+      </example>
+    </storm-control>
+    <world-difficulty>
+      <example>
+        <difficulty>hard</difficulty>
+      </example>
+    </world-difficulty>
+    <world-type>
+      <example>
+        <type>flat</type>
+      </example>
+    </world-type>
+  </world-modification>
+  <match-states>
+    <state>
+      <example>
+        <states>
+          <state id="play" playing="true"/>
+        </states>
+      </example>
+    </state>
+  </match-states>
+  <kits>
+    <kits>
+      <example>
+        <kits>
+          <kit name="{kits.medic}" description="{kits.medic-description}" loadout="medic">
+            <icon material="potion" damage="16421"/>
+          </kit>
+          <kit name="{kits.bunny}" description="{kits.bunny-description}" loadout="bunny">
+            <icon material="potion" damage="16426"/>
+          </kit>
+        </kits>
+      </example>
+    </kits>
+    <kit-permissions>
+      <example>
+        <permission>some.permission</permission>
+      </example>
+    </kit-permissions>
+    <double-jump-ability>
+      <example>
+        <abilities>
+          <double-jump icarus="50" push="0.5"/>
+        </abilities>
+      </example>
+    </double-jump-ability>
+    <health-effect-ability>
+      <example>
+        <abilities>
+          <health-effect effect="50" health="0.5"/>
+        </abilities>
+      </example>
+    </health-effect-ability>
+  </kits>
+  <decay-areas-and-phases>
+    <decay-area>
+      <example>
+        <decay>
+          <area region="bridges" fall-delay="3s">
+            <phase delay="1s">redstone block</phase>
+            <phase delay="1s">dropper</phase>
+            <phase delay="1s">piston base</phase>
+            <phase delay="1s">piston sticky base</phase>
+            <phase delay="1s">tnt</phase>
+          </area>
+        </decay>
+      </example>
+      <decay-phase>
+        <example>
+          <phase delay="1s">redstone block</phase>
+          <phase delay="1s">dropper</phase>
+          <phase delay="1s">piston base</phase>
+          <phase delay="1s">piston sticky base</phase>
+          <phase delay="1s">tnt</phase>
+        </example>
+      </decay-phase>
+    </decay-area>
+  </decay-areas-and-phases>
+  <items---loadouts>
+    <root-loadout-element>
+      <example>
+        <loadouts>
+          <loadout id="default">
+            ...
+          </loadout>
+        </loadouts>
+      </example>
+      <randomizer>
+        <example>
+          <loadout id="randomizer">
+            <randomizer min="1" max="1">...</randomizer>
+          </loadout>
+        </example>
+        <item-set>
+          <example>
+            <items max="1" min="1">
+              <item name="^e^lThe King's Helmet" material="diamond helmet">
+                <enchantments>
+                  <enchantment level="4">protection environmental</enchantment>
+                  <enchantment level="3">durability</enchantment>
+                  <enchantment level="3">thorns</enchantment>
+                </enchantments>
+                <lore>
+                  <line>King of the Ladder!</line>
+                </lore>
+              </item>
+            </items>
+          </example>
+        </item-set>
+      </randomizer>
+      <generic-items>
+        <example>
+          <loadout id="default">
+            <item slot="0" material="stone sword"/>
+            <item slot="1" material="bow"/>
+          </loadout>
+        </example>
+        <enchantments>
+          <example>
+            <item name="The King's Helmet" material="diamond helmet">
+              <enchantments>
+                <enchantment level="4">protection environmental</enchantment>
+                <enchantment level="3">durability</enchantment>
+                <enchantment level="3">thorns</enchantment>
+              </enchantments>
+            </item>
+          </example>
+        </enchantments>
+        <effects>
+          <example>
+            <item slot="3" material="potion" damage="16426" amount="4">
+              <effect amplifier="2" duration="3m">absorption</effect>
+            </item>
+          </example>
+        </effects>
+        <stored-enchantments>
+          <example>
+            <stored-enchantment level="12">speed</stored-enchantment>
+            <stored-enchantment level="12">night vision</stored-enchantment>
+          </example>
+        </stored-enchantments>
+        <banner-designs>
+          <example>
+            <pattern color="red">stripe center</pattern>
+            <pattern color="blue">diagonal left</pattern>
+          </example>
+        </banner-designs>
+      </generic-items>
+        <player-heads>
+          <example>
+            <player-head slot="1" uuid="069a79f444e94726a5befca90e38aaf5"/>
+          </example>
+        </player-heads>
+      <disguises>
+        <example>
+          <loadout>
+            ...
+            <disguise material="Workbench">falling block</disguise> <!-- Become crafty -->
+          </loadout>
+        </example>
+      </disguises>
+      <vehicle>
+        <example>
+          <vehicle remove="true">boat</vehicle>
+        </example>
+      </vehicle>
+      <effects>
+        <example>
+          <loadout>
+            <effect amplifier="3" duration="5s">invisibility</effect>
+            <effect amplifier="3" duration="5s">increase_damage</effect>
+            <effect amplifier="3" duration="5s">regeneration</effect>
+            <effect amplifier="3" duration="5s">speed</effect>
+          </loadout>
+        </example>
+      </effects>
+      <compass>
+        <example>
+          <loadout>
+            ...
+            <compass>1, 1, 1</compass>
+          </loadout>
+        </example>
+      </compass>
+      <weather>
+        <example>
+          <loadout>
+            ...
+            <weather>sunny</weather>
+          </loadout>
+        </example>
+      </weather>
+      <time>
+        <example>
+          <loadout>
+            ...
+            <time action="add">10000</time>
+          </loadout>
+        </example>
+      </time>
+      <health>
+        <example>
+          <loadout>
+            ...
+            <health action="add">4</health>
+          </loadout>
+        </example>
+      </health>
+      <max-health>
+        <example>
+          <loadout>
+            ...
+            <max-health action="subtract">2</max-health>
+          </loadout>
+        </example>
+      </max-health>
+      <health-scale>
+        <example>
+          <loadout>
+            ...
+            <health-scale action="multiply">2</health-scale>
+          </loadout>
+        </example>
+      </health-scale>
+      <food>
+        <example>
+          <loadout>
+            ...
+            <food-level action="add">4</food-level>
+          </loadout>
+        </example>
+      </food>
+      <saturation>
+        <example>
+          <loadout>
+            ...
+            <saturation action="subtract">2</saturation>
+          </loadout>
+        </example>
+      </saturation>
+      <exhaustion>
+        <example>
+          <loadout>
+            ...
+            <exhaustion action="multiply">2</exhaustion>
+          </loadout>
+        </example>
+      </exhaustion>
+      <experience-level>
+        <example>
+          <loadout>
+            ...
+            <exp-level action="add">4</exp-level>
+          </loadout>
+        </example>
+      </experience-level>
+      <experience-points>
+        <example>
+          <loadout>
+            ...
+            <exp-points action="subtract">2</exp-points>
+          </loadout>
+        </example>
+      </experience-points>
+      <total-experience>
+        <example>
+          <loadout>
+            ...
+            <exp-total action="multiply">2</exp-total>
+          </loadout>
+        </example>
+      </total-experience>
+      <fly-speed>
+        <example>
+          <loadout>
+            ...
+            <fly-speed action="add">4</fly-speed>
+          </loadout>
+        </example>
+      </fly-speed>
+      <walk-speed>
+        <example>
+          <loadout>
+            ...
+            <walk-speed action="subtract">2</walk-speed>
+          </loadout>
+        </example>
+      </walk-speed>
+    </root-loadout-element>
+  </items---loadouts>
+  <broadcasts>
+    <broadcast>
+      <example>
+        <broadcasts>
+          <broadcast format="alert" interval="2m">{broadcasts.some-broadcast}</broadcast>
+          <broadcast format="alert" interval="2m">{broadcasts.some-broadcast-2}</broadcast>
+        </broadcasts>
+      </example>
+    </broadcast>
+  </broadcasts>
+  <regions>
+    <region-reference>
+      <example>
+        <point id="a-point">24, 15, 60</point>
+
+        <join id="reference-example">
+          <region id="a-point"/>
+        </join>
+      </example>
+    </region-reference>
+    <block>
+      <example>
+        <block>-138,32,87</block>
+      </example>
+    </block>
+    <box>
+      <example>
+        <box center="4,3,1" x="4" y="5" z="11"/>
+        <!-- A cuboid that centers at 4,3,1 spreads out above and below the supplied coordinates. -->
+        <!-- If x,y, or z isn't supplied, 0 will be used for the value -->
+      </example>
+    </box>
+    <circle>
+      <example>
+        <circle center="23, 50, 15" radius="5"/>
+      </example>
+    </circle>
+    <cuboid>
+      <example>
+        <cuboid min="23, 50, 15" max="40, 62, 31"/>
+        <cuboid min="50, 30, 30" max="25, 18, 25"/> <!-- min doesn't strictly require to be below max -->
+      </example>
+    </cuboid>
+    <cylinder>
+      <example>
+        <cylinder base="23, 50, 15" radius="5" height="10"/>
+      </example>
+    </cylinder>
+    <point>
+      <example>
+        <point>24, 15.5, 60</point>
+      </example>
+    </point>
+    <rectangle>
+      <example>
+        <rectangle x="50" z="-40"/>
+      </example>
+    </rectangle>
+    <sphere>
+      <example>
+        <sphere origin="50, 18, 30" radius="12"/>
+      </example>
+    </sphere>
+    <intersect>
+      <example>
+        <intersect>
+          <cuboid min="0, 5, 0" max="5, 10, 5"/>
+          <cuboid min="0, 5, 0" max="5, 7, 5"/>
+        </intersect>
+      </example>
+    </intersect>
+    <invert>
+      <example>
+        <invert>
+          <cuboid min="32, 112, 52" max="52, 12, 5"/>
+          <translate offset="-25, -10, 0">
+            <cuboid min="-5, 90, -5" max="5, 100, 5" />
+            <sphere origin="0, 100, 0" radius="5" />
+          </translate>
+        </invert>
+      </example>
+    </invert>
+    <join>
+      <example>
+        <join>
+          <cuboid min="-5, 90, -5" max="5, 100, 5" />
+          <sphere origin="0, 100, 0" radius="5" />
+        </join>
+      </example>
+    </join>
+    <subtract>
+      <example>
+        <subtract> <!-- these region includes all points in the cuboid, except 60, 40, 60 -->
+          <cuboid min="45, 32, 45" max="90, 64, 90"/>
+          <point>60, 40, 60</point>
+        </subtract>
+      </example>
+    </subtract>
+    <translate>
+      <example>
+        <translate offset="-25, -10, 0">
+          <cuboid min="-5, 90, -5" max="5, 100, 5" />
+          <sphere origin="0, 100, 0" radius="5" />
+        </translate>
+      </example>
+    </translate>
+    <above>
+      <example>
+        <above y="25"/> <!-- everything above y=25 -->
+        <above x="25" z="21"/>  <!-- any block in below x=25, z=21 -->
+      </example>
+    </above>
+    <below>
+      <example>
+        <below x="32" y="18" z="52"/> <!-- you get the idea -->
+      </example>
+    </below>
+    <bounds>
+      <example>
+        <bounds id="bound" y-axis="false">
+          <region>
+            <cuboid min="11, 10, -13" max="2, 10, -5"/>
+          </region>
+        </bounds>
+      </example>
+    </bounds>
+    <fill>
+      <example>
+        <fill bounds="a-cuboid" materials="dirt;grass" start="3,2,1"/>
+        <!-- every block that is either dirt or grass within the bounds -->
+      </example>
+    </fill>
+    <sector>
+      <example>
+        <sector x="11" z="22" start="120.0" end="130.0"/> <!-- everything between angle 120 and 130 in a circle that has a base at the supplied coords. -->
+      </example>
+    </sector>
+    <everywhere>
+      <example>
+        <everywhere/> <!-- every block -->
+      </example>
+    </everywhere>
+    <nowhere>
+      <example>
+        <nowhere/> <!-- no blocks at any location -->
+      </example>
+    </nowhere>
+    <void>
+      <example>
+        <void/> <!-- everything that has void under it. -->
+      </example>
+    </void>
+  </regions>
+  <damage-modification>
+    <modifier>
+      <example>
+        <modify-damage>
+          <mod mod="300" action="set">fall</mod>
+          <!-- Fall damage is always deadly -->
+        </modify-damage>
+      </example>
+    </modifier>
+  </damage-modification>
+  <fake-guis>
+    <configuration>
+      <example>
+        <fake-guis fake-anvils="true"/>
+      </example>
+    </configuration>
+  </fake-guis>
+  <custom-projectiles>
+    <projectile>
+      <example>
+        <projectiles>
+          <projectile id="tnt" name="{tnt-bow}" type="primed tnt" cooldown="11s"/>
+        </projectiles>
+
+        <!-- Translate {tnt-bow} -->
+        <locales>
+          <locale lang="en">
+            <tnt-bow>TNT Bow</tnt-bow>
+          </locale>
+        </locales>
+      </example>
+    </projectile>
+  </custom-projectiles>
+  <results>
+    <win-element>
+      <example>
+        <results>
+          <!-- Match will end with the team who has the most objectives after 11 minutes. -->
+          <win scenario="objectives">
+            <time>11m</time>
+          </win>
+        </results>
+      </example>
+    </win-element>
+    <end-scenarios>
+      <example>
+        <!-- Red will win 50% of the time the check is performed. (Check is performed 20 times a second) -->
+        <win scenario="team" team="red">
+          <sometimes/>
+        </win>
+      </example>
+    </end-scenarios>
+  </results>
+  <chat-channels>
+    <main-configuration>
+      <example>
+        <channels team-chat="true" global-chat="true"/>
+      </example>
+    </main-configuration>
+  </chat-channels>
+  <kills-deaths>
+    <kill-death-checks>
+      <example>
+        <kills>
+          <kill-check id="only-red"/>
+          <death-check id="in-mid"/>
+        </kills>
+        <checks>
+          <holding material="diamond sword" id="only-red"/>
+          <on-ground id="in-mid"/>
+        </checks>
+      </example>
+    </kill-death-checks>
+    <kill-rewards>
+      <example>
+        <loadouts>
+          ...
+          <loadout id="kill-reward">
+            <item material="golden apple"/>
+          </loadout>
+        </loadouts>
+        <kills>
+          <rewards>
+            <reward loadout="kill-reward"/>
+          </rewards>
+        </kills>
+      </example>
+    </kill-rewards>
+  </kills-deaths>
+  <remove-repair-and-keep>
+    <remove-drops>
+      <example>
+        <items>
+          <!-- remove all glass and wood when dropped -->
+          <remove-drops>
+            <any>
+              <material>glass</material>
+              <material>wood</material>
+            </any>
+          </remove-drops>
+        </items>
+      </example>
+    </remove-drops>
+    <keep-items>
+      <example>
+        <items>
+          <!-- keep diamond sword in inventory after death -->
+          <keep-items>
+            <any>
+              <material>diamond sword</material>
+            </any>
+          </keep-items>
+        </items>
+      </example>
+    </keep-items>
+    <keep-armor>
+      <example>
+        <items>
+          <!-- keep diamond helmet in inventory after death -->
+          <keep-armor>
+            <any>
+              <material>diamond helmet</material>
+            </any>
+          </keep-armor>
+        </items>
+      </example>
+    </keep-armor>
+    <repair-tools>
+      <example>
+        <items>
+          <repair-tools>
+            <any>
+              <material>stone sword</material>
+              <material>leather helmet</material>
+              <material>leather chestplate</material>
+            </any>
+          </repair-tools>
+        </items>
+      </example>
+    </repair-tools>
+  </remove-repair-and-keep>
+  <checks>
+    <spectating-check>
+      <example>
+        <checks>
+          ...
+          <spectating id="spectator"/>
+        </checks>
+      </example>
+    </spectating-check>
+    <spawn-reason-check>
+      <example>
+        <checks>
+          ...
+          <spawn id="spawneggs">spawner egg</spawn>
+        </checks>
+      </example>
+    </spawn-reason-check>
+    <explosion-check>
+      <example>
+        <checks>
+          ...
+          <explosion id="boom"/>
+        </checks>
+      </example>
+    </explosion-check>
+    <carrying-check>
+      <example>
+        <checks>
+          ...
+          <carrying material="diamond" amount="3" id="diamond"/>
+        </checks>
+      </example>
+    </carrying-check>
+    <team-check>
+      <example>
+        <checks>
+          ...
+          <team id="blueteam">blue</team>
+        </checks>
+      </example>
+    </team-check>
+    <not-check>
+      <example>
+        <checks>
+          <not id="ironsword">
+            <holding material="iron sword"/>
+          </not>
+        </checks>
+      </example>
+    </not-check>
+    <kit-check>
+      <example>
+        <checks>
+          ...
+          <kit id="kitcheck">some-kit</kit>
+        </checks>
+      </example>
+    </kit-check>
+    <damage-check>
+      <example>
+        <checks>
+          ...
+          <damage id="falldam">fall</damage>
+        </checks>
+      </example>
+    </damage-check>
+    <score-check>
+      <example>
+        <checks>
+          ...
+          <score compare="greater" team="blue">4</score>
+        </checks>
+      </example>
+    </score-check>
+    <inside-check>
+      <example>
+        <checks>
+          <inside id="insidethis">
+            <region>
+              <sphere origin="41, 15, 0" radius="5"/>
+            </region>
+          </inside>
+        </checks>
+      </example>
+    </inside-check>
+    <kill-streak-check>
+      <example>
+        <checks>
+          <kill-streak id="hey" scope="life">1-4</kill-streak>
+        </checks>
+      </example>
+    </kill-streak-check>
+    <elimination-check>
+      <example>
+        <checks>
+          <elimination id="eliminated"/>
+        </checks>
+      </example>
+    </elimination-check>
+    <all-check>
+      <example>
+        <checks>
+          <all id="allofthis">
+            <carrying material="iron" amount="12"/>
+            <holding material="iron sword"/>
+          </all>
+        </checks>
+      </example>
+    </all-check>
+    <never-check>
+      <example>
+        <checks>
+          <!-- NOTE: The "never" ID is added by default and cannot be used -->
+          <never id="never-1"/>
+        </checks>
+      </example>
+    </never-check>
+    <participating-check>
+      <example>
+        <checks>
+          <participating id="youplaying"/>
+        </checks>
+      </example>
+    </participating-check>
+    <deny-check>
+      <example>
+        <checks>
+          <deny id="ironsword2">
+            <holding material="iron sword"/>
+          </deny>
+        </checks>
+      </example>
+    </deny-check>
+    <objective-check>
+      <example>
+        <checks>
+          <objective id="touch" state="touched">some-flag</objective> <!-- STATES: Completed, Captured, Touched. -->
+        </checks>
+      </example>
+    </objective-check>
+    <always-check>
+      <example>
+        <checks>
+          <!-- NOTE: The "always" ID is added by default and cannot be used -->
+          <always id="always-1"/>
+        </checks>
+      </example>
+    </always-check>
+    <allow-check>
+      <example>
+        <checks>
+          <allow id="ironsword3">
+            <holding material="iron sword"/>
+          </allow>
+        </checks>
+      </example>
+    </allow-check>
+    <item-check>
+      <example>
+        <checks>
+          ...
+          <item id="woodcheck" material="wood" damage="1"/>
+        </checks>
+      </example>
+    </item-check>
+    <void-check>
+      <example>
+        <checks>
+          ...
+          <void min="0,0,0" max="1,1,1" id="VOID"/>
+        </checks>
+      </example>
+    </void-check>
+    <wearing-check>
+      <example>
+        <checks>
+          ...
+          <wearing id="chestplate" material="iron chestplate"/>
+        </checks>
+      </example>
+    </wearing-check>
+    <entity-check>
+      <example>
+        <checks>
+          ...
+          <entity id="piggy">pig</entity>
+        </checks>
+      </example>
+    </entity-check>
+    <material-check>
+      <example>
+        <checks>
+          ...
+          <material id="logfolder">log:1</material>
+        </checks>
+      </example>
+    </material-check>
+    <sometimes-check>
+      <example>
+        <checks>
+          ...
+          <!-- NOTE: The "sometimes" ID is added by default and cannot be used -->
+          <sometimes id="sometimes-1"/>
+        </checks>
+      </example>
+    </sometimes-check>
+    <weather-check>
+      <example>
+        <checks>
+          ...
+          <weather id="norain">clear</weather>
+        </checks>
+      </example>
+    </weather-check>
+    <state-check>
+      <example>
+        <checks>
+          ...
+          <state id="matchstate">playing</state>
+        </checks>
+      </example>
+    </state-check>
+    <holding-check>
+      <example>
+        <checks>
+          ...
+          <holding id="stone" material="stone sword"/>
+        </checks>
+      </example>
+    </holding-check>
+    <any-check>
+      <example>
+        <checks>
+          <any id="why">
+            <carrying material="iron" amount="12"/>
+            <holding material="iron sword"/>
+          </any>
+        </checks>
+      </example>
+    </any-check>
+    <attacker-check>
+      <example>
+        <checks>
+          ...
+          <attacker id="donthurtme">
+            <any>
+              <team>red</team>
+              <team>blue</team>
+            </any>
+          </attacker>
+        </checks>
+      </example>
+    </attacker-check>
+    <random-check>
+      <example>
+        <checks>
+          ...
+          <!-- 10% chance of passing -->
+          <random id="chance">0.1</random>
+        </checks>
+      </example>
+    </random-check>
+    <time-check>
+      <example>
+        <checks>
+          ...
+          <!-- Time equals 5 minutes, 0 seconds -->
+          <time id="5minute">5m</time>
+        </checks>
+      </example>
+    </time-check>
+    <victim-check>
+      <example>
+        <checks>
+          ...
+          <victim id="victims">
+            <any>
+              <team>green</team>
+              <team>yellow</team>
+            </any>
+          </victim>
+        </checks>
+      </example>
+    </victim-check>
+    <flying-check>
+      <example>
+        <checks>
+          ...
+          <flying id="fly"/>
+        </checks>
+      </example>
+    </flying-check>
+    <on-ground-check>
+      <example>
+        <checks>
+          ...
+          <on-ground id="walking"/>
+        </checks>
+      </example>
+    </on-ground-check>
+    <sneaking-check>
+      <example>
+        <checks>
+          ...
+          <sneaking id="sneak"/>
+        </checks>
+      </example>
+    </sneaking-check>
+    <sprinting-check>
+      <example>
+        <checks>
+          ...
+          <sprinting id="sprint"/>
+        </checks>
+      </example>
+    </sprinting-check>
+  </checks>
+  <spawns>
+    <base-configuration>
+      <example>
+        <spawns>
+          <!-- Spectator spawn -->
+          <spawn>
+            <regions>
+              <point look="18,32,22">32.5, 42, 26.5</point>
+              <cuboid yaw="45" min="38, 50, 42" max="28, 40, 32" />
+            </regions>
+          </spawn>
+
+          <!-- Team spawns -->
+          <spawn team="lime-team" look="18,32,22" region="lime-spawn"/>
+          <spawn team="purple-team" look="18,32,22" region="purple-spawn"/>
+        </spawns>
+      </example>
+    </base-configuration>
+    <spawn>
+      <example>
+        <spawns>
+          <spawn yaw="45" team="lime">
+            ...
+          </spawn>
+        </spawns>
+      </example>
+      <regions>
+        <example>
+          <spawns>
+            <spawn yaw="45" team="lime">
+              <regions>
+                <circle look="0, 0, 0" center="17, 50, 13" radius="6"/> <!-- yaw/pitch towards 0, 0, 0 -->
+                <cuboid min="13, 50, 15" max="10, 49, 16"/> <!-- yaw is 45 -->
+              </regions>
+            </spawn>
+          </spawns>
+        </example>
+      </regions>
+    </spawn>
+  </spawns>
+  <localization>
+    <locale-entry>
+      <example>
+        <locales>
+          <locale lang="en">
+            <errors>
+              <build-north>You cannot build in the North.</build-north>
+            </errors>
+          </locale>
+
+          <locale lang="es">
+            <errors>
+              <build-north>No puedes construir en el norte.</build-north>
+            </errors>
+          </locale>
+        </locales>
+
+
+        <!-- then you can do -->
+        <zones>
+          <zone build="never" region="the-north">
+            <build-message>{errors.build-north}</build-message>
+          </zone>
+        </zones>
+      </example>
+    </locale-entry>
+  </localization>
+  <walls>
+    <base-configuration>
+      <example>
+        <walls fall-time="10m" end-time="30m">
+          <wall region="walls"/>
+        </walls>
+      </example>
+    </base-configuration>
+    <wall>
+      <example>
+        <walls fall-time="10m" end-time="30m">
+          <wall region="walls"/>
+        </walls>
+        <region id="wall">
+          <cuboid min="0,50,0" max="2,80,100"/>
+        </region>
+      </example>
+    </wall>
+  </walls>
+  <ender-chests>
+    <configuration>
+      <example>
+        <enderchests exclusive="false" check="insertcheckhere"/>
+      </example>
+    </configuration>
+  </ender-chests>
+  <schematic-loading-creation>
+    <schematic>
+      <example>
+        <structures>
+          <!-- Looks for schematic at MAP_FOLDER/schematics/fun_town.schematic -->
+          <schematic id="fun-town" type="file" source="fun_town"/>
+
+          <schematic id="lazy-town" type="region" source="a-region-id"/>
+        </structures>
+      </example>
+    </schematic>
+  </schematic-loading-creation>
+  <compasses>
+    <compass>
+      <example>
+        <compasses>
+          <!-- Sets compass to nearest player who has gold. -->
+          <!-- If no players have gold the compass will point to the location. -->
+          <compass target="enemy" check="has-gold"/>s
+          <compass target="1,1,1"/>
+        </compasses>
+
+        <checks>
+          <carrying id="has-gold" material="gold ingot"/>
+        </checks>
+      </example>
+    </compass>
+  </compasses>
+  <custom-resource-packs>
+    <pack>
+      <example>
+        <resource-packs>
+          <resource-pack id="l33t-pack" name="Not a Keylogger" url="https://paste.avicus.net/rikukufado"/>
+        </resource-packs>
+      </example>
+    </pack>
+    <resource-pack-request>
+      <example>
+        <request-resource-pack id="l33t-pack" force="true"/>
+      </example>
+    </resource-pack-request>
+  </custom-resource-packs>
+  <executors>
+    <shared-executor-attributes>
+      <example>
+        <!-- Plays the sound of an ender dragon dying. -->
+        <executors>
+          <executor id="do-this" check="only-coal">
+            <play-sound sound="enderdragon death" volume="1" pitch="1"/>
+          </executor>
+        </executors>
+
+        <checks>
+          <material id="only-coal">coal block</material>
+        </checks>
+
+        <!-- When a player breaks a coal block, the executor will run. -->
+        <triggers>
+          <trigger on="block-break" execute="do-this"/>
+        </triggers>
+      </example>
+    </shared-executor-attributes>
+    <enchant-item>
+      <example>
+        <executors>
+          <executor id="anid" check="acheck">
+            <enchant-item only-natural="false" level="41" selector="hand" to-enchant="iron sword">fast digging</enchant-item>
+          </executor>
+        </executors>
+      </example>
+    </enchant-item>
+    <play-sound>
+      <example>
+        <executors>
+          <executor id="do-this" check="only-coal">
+            <play-sound sound="enderdragon death" volume="1" pitch="1"/>
+          </executor>
+        </executors>
+      </example>
+    </play-sound>
+    <replace-blocks>
+      <example>
+        <executors>
+          <executor id="help" check="always">
+            <replace-block find="air" replace="enchantment table" region="enchantment-station-enchantment-tables"/>
+          </executor>
+        </executors>
+      </example>
+    </replace-blocks>
+    <send-message>
+      <example>
+        <executors>
+          <executor id="send-alert" check="always">
+            <send-message location="chat">onion</send-message>
+          </executor>
+        </executors>
+      </example>
+    </send-message>
+    <summon-entity>
+      <example>
+        <executors>
+          <executor id="give-items" check="always">
+            <execution-group>
+              <summon-entity type="lightning" region="portdest"/>
+              <perform-on-everyone execute="send-alert"/>
+            </execution-group>
+          </executor>
+        </executors>
+      </example>
+      <equipment-attributes>
+        <example>
+          <executors>
+            <executor id="spawn-zombie" check="always">
+              <summon-entity type="zombie" region="zombiespawn">
+                <equipment>
+                  <item slot="hand">diamond sword</item>
+                </equipment>
+              </summon-entity>
+            </executor>
+          </executors>
+        </example>
+      </equipment-attributes>
+      <firework-attributes>
+        <example>
+          <executors>
+            <executor id="spawnfirework" check="always">
+              <summon-entity type="firework" region="fireworkspawn">
+                <firework power="4" team-color="false" team-color-fade="true">...</firework>
+              </summon-entity>
+            </executor>
+          </executors>
+        </example>
+        <firework-effect-attributes>
+          <example>
+            <executors>
+              <executor id="spawnfirework" check="always">
+                <summon-entity type="firework" region="fireworkspawn">
+                  <firework power="4" team-color="false" team-color-fade="true">
+                    <effect effect="ball" flicker="true" color="red"/>
+                    <effect effect="star" flicker="false" color="white" fade="true"/>
+                    <effect effect="ball" flicker="true" color="blue"/>
+                  </firework>
+                </summon-entity>
+              </executor>
+            </executors>
+          </example>
+        </firework-effect-attributes>
+      </firework-attributes>
+    </summon-entity>
+    <take-items>
+      <example>
+        <executors>
+          <executor id="playerhelp" check="execute">
+            <take-item take="stone;dirt"/>
+          </executor>
+        </executors>
+      </example>
+    </take-items>
+    <teleport-player>
+      <example>
+        <executors>
+          <executor id="player-tp" check="always">
+            <teleport-player check="fire" to="water"/>
+          </executor>
+        </executors>
+      </example>
+    </teleport-player>
+    <perform-executors-on-group>
+      <example>
+        <executors>
+          <perform-on-group id="xtra-life" group="red" check="always">
+            <execute>
+              <modify-lives amount="1"/>
+            </execute>
+          </perform-on-group>
+          <perform-on-group id="xtra-life" group="blue" check="always">
+            <execute>
+              <modify-lives amount="1"/>
+            </execute>
+          </perform-on-group>
+        </executors>
+      </example>
+    </perform-executors-on-group>
+    <perform-at-fixed-rate>
+      <example>
+        <executors>
+          <executor check="always">
+            <loop id="spawn-loop" check="always" stop="never" interval="20s" execute="spawn-items"/>
+          </executor>
+        </executors>
+      </example>
+    </perform-at-fixed-rate>
+    <perform-executors-on-all-players>
+      <example>
+        <executors>
+          <executor id="give-items" check="always">
+            <perform-on-everyone execute="send-alert"/>
+          </executor>
+        </executors>
+      </example>
+    </perform-executors-on-all-players>
+    <modify-lives>
+      <example>
+        <executors>
+          <executor id="modify" check="putcheck">
+            <modify-lives action="add" amount="69"/>
+          </executor>
+        </executors>
+      </example>
+    </modify-lives>
+    <toggle-elimination>
+      <example>
+        <executors>
+          <executor id="toggle-elim" check="never">
+            <toggle-elimination to="true"/>
+          </executor>
+        </executors>
+      </example>
+    </toggle-elimination>
+    <apply-loadout>
+      <example>
+        <executors>
+          <executor id="give-items" check="always">
+            <apply-loadout check="oneitem" loadout="randomizer"/>
+          </executor>
+        </executors>
+      </example>
+    </apply-loadout>
+    <change-world-time>
+      <example>
+        <executors>
+          <executor id="let-there-be-chaos" check="always">
+            <change-world-time check="always" time="13200"/>
+          </executor>
+        </executors>
+      </example>
+    </change-world-time>
+    <triggers>
+      <example>
+        <triggers>
+          <trigger on="block-break" execute="do-this"/>
+        </triggers>
+      </example>
+    </triggers>
+  </executors>
+</examples>
