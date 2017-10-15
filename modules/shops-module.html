@@ -1,0 +1,46 @@
+---
+layout: module
+title: Shops Module
+permalink: /modules/shops-module
+---
+
+<span><h1>Shops Module<small>{% ihighlight xml %}<shops>{% endihighlight %}</small></h1><span><h2>Shop<small>{% ihighlight xml %}<shop>{% endihighlight %}</small></h2>{% highlight xml %}
+<shops>
+  <shop id="a-shop" name="Itemz 4 U" open-check="always">
+    <point-config>
+      <join-match>400</join-match>
+    </point-config>
+    <items>
+      <item price="100" prestige="0" name="Spanky Spade" check="always">
+        <description>
+          <line>Knockback V on an 11 use diamond shovel.</line>
+        </description>
+        <stack material="diamond spade" damage="1550">
+          <enchantments>
+            <enchantment level="5">knockback</enchantment>
+          </enchantments>
+        </stack>
+      </item>
+    </items>
+  </shop>
+</shops>
+{% endhighlight %}<br><div class="table-responsive"><h5>Shop Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr class="info"><td><code>id</code></td><td class="width: 65%"><p>The globally unique ID of this feature.</p><p>This can be used to reference this feature from other parts of the XML.</p></td><td><span class="label label-primary">Feature ID</span></td></tr><tr class="info"><td><code>name</code></td><td class="width: 65%"><p>The name of the shop.</p></td><td><span class="label label-primary">Localized String</span></td></tr><tr class="info"><td><code>open-check</code></td><td class="width: 65%"><p>Check that should be ran before the shop can be opened.</p><p>This can either be in ID form, or as a nested XML tag in the syntax of a check.</p></td><td><span class="label label-primary">Check</span></td></tr></tbody></table></div><span><h3>Point Config<small>{% ihighlight xml %}<point-config>{% endihighlight %}</small></h3><p>Configuration options regarding to how many points should be earned for performing actions.</p>{% highlight xml %}
+<point-config>
+  <join-match>400</join-match>
+</point-config>
+{% endhighlight %}<br><div class="table-responsive"><h5>Point Config Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td><td>Default</td></tr></thead><tbody><tr><td><code>player-kill</code></td><td class="width: 65%"><p>The amount of points that should be earned when the performs the player-kill action</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td><td><code>0</code></td></tr><tr><td><code>join-match</code></td><td class="width: 65%"><p>The amount of points that should be earned when the performs the join-match action</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td><td><code>0</code></td></tr><tr><td><code>entity-destroy</code></td><td class="width: 65%"><p>The amount of points that should be earned when the performs the entity-destroy action</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td><td><code>0</code></td></tr><tr><td><code>destroyable-damage</code></td><td class="width: 65%"><p>The amount of points that should be earned when the performs the destroyable-damage action</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td><td><code>0</code></td></tr><tr><td><code>destroyable-touch</code></td><td class="width: 65%"><p>The amount of points that should be earned when the performs the destroyable-touch action</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td><td><code>0</code></td></tr><tr><td><code>destroyable-repair</code></td><td class="width: 65%"><p>The amount of points that should be earned when the performs the destroyable-repair action</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td><td><code>0</code></td></tr><tr><td><code>leakable-leak</code></td><td class="width: 65%"><p>The amount of points that should be earned when the performs the leakable-leak action</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td><td><code>0</code></td></tr><tr><td><code>monument-destroy</code></td><td class="width: 65%"><p>The amount of points that should be earned when the performs the monument-destroy action</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td><td><code>0</code></td></tr><tr><td><code>flag-capture</code></td><td class="width: 65%"><p>The amount of points that should be earned when the performs the flag-capture action</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td><td><code>0</code></td></tr><tr><td><code>flag-pickup</code></td><td class="width: 65%"><p>The amount of points that should be earned when the performs the flag-pickup action</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td><td><code>0</code></td></tr><tr><td><code>flag-steal</code></td><td class="width: 65%"><p>The amount of points that should be earned when the performs the flag-steal action</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td><td><code>0</code></td></tr><tr><td><code>hill-capture</code></td><td class="width: 65%"><p>The amount of points that should be earned when the performs the hill-capture action</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td><td><code>0</code></td></tr><tr><td><code>point-earn</code></td><td class="width: 65%"><p>The amount of points that should be earned when the performs the point-earn action</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td><td><code>0</code></td></tr><tr><td><code>wool-pickup</code></td><td class="width: 65%"><p>The amount of points that should be earned when the performs the wool-pickup action</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td><td><code>0</code></td></tr><tr><td><code>wool-place</code></td><td class="width: 65%"><p>The amount of points that should be earned when the performs the wool-place action</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td><td><code>0</code></td></tr><tr><td><code>wall-fall</code></td><td class="width: 65%"><p>The amount of points that should be earned when the performs the wall-fall action</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td><td><code>0</code></td></tr></tbody></table></div></span><span><h3>Shop Items<small>{% ihighlight xml %}<items>{% endihighlight %}</small></h3><p>These define which items are inside of the shop.</p>{% highlight xml %}
+<items>
+  <item price="100" prestige="0" name="Spanky Spade" check="always">
+    <description>
+      <line>Knockback V on an 11 use diamond shovel.</line>
+    </description>
+    ...
+  </item>
+</items>
+{% endhighlight %}<br><span><h3>Item Stacks<small>{% ihighlight xml %}<stack>{% endihighlight %}</small></h3><p>These can be used to give item stacks to players upon purchase.</p>{% highlight xml %}
+<stack material="diamond spade" damage="1550">
+  <enchantments>
+    <enchantment level="5">knockback</enchantment>
+  </enchantments>
+</stack>
+{% endhighlight %}<br><div class="table-responsive"><h5>Item Stacks Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td><td>Default</td></tr></thead><tbody><tr class="info"><td><code>price</code></td><td class="width: 65%"><p>The price of the item</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td><td></td></tr><tr class="info"><td><code>name</code></td><td class="width: 65%"><p>The name of the item.</p></td><td><span class="label label-primary">Localized String</span></td><td></td></tr><tr><td><code>description</code></td><td class="width: 65%"><p>The description of the item.</p></td><td><span class="label label-primary">Localized String</span></td><td></td></tr><tr class="info"><td><code>check</code></td><td class="width: 65%"><p>Check that should be ran before the item can be purchased.</p><p>This can either be in ID form, or as a nested XML tag in the syntax of a check.</p></td><td><span class="label label-primary">Check</span></td><td></td></tr><tr><td><code>prestige</code></td><td class="width: 65%"><p>The prestige level required to purchase the item.</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td><td><code>0</code></td></tr></tbody></table></div></span></span></span></span>

@@ -41,4 +41,5 @@ content:
 - {path: /modules/module-groups, name: Module Groups}
 - {path: /modules/results, name: Results}
 - {path: /modules/schematic-loading-creation, name: Schematic Loading/Creation}
+- {path: /modules/shops-module, name: Shops Module}
 - {path: /modules/xml-conditionals, name: XML Conditionals}

@@ -337,8 +337,8 @@
         <item-rewards>
           <example>
             <item-rewards>
-  <item points="1">cooked beef</item>
-</item-rewards>
+              <item points="1">cooked beef</item>
+            </item-rewards>
           </example>
         </item-rewards>
       </score-box>
@@ -350,10 +350,10 @@
       <flag-capture-net>
         <example>
           <net owner="blue" points="1" respawn-togather="true">
-  <!-- Flag IDs -->
-  <flag>red-1</flag>
-  <flag>red-2</flag>
-</net>
+            <!-- Flag IDs -->
+            <flag>red-1</flag>
+            <flag>red-2</flag>
+          </net>
         </example>
       </flag-capture-net>
       <tnt-customization>
@@ -636,6 +636,13 @@
         </abilities>
       </example>
     </double-jump-ability>
+    <lumber-jack>
+      <example>
+        <abilities>
+          <lumber-jack/>
+        </abilities>
+      </example>
+    </lumber-jack>
     <health-effect-ability>
       <example>
         <abilities>
@@ -738,11 +745,11 @@
           </example>
         </banner-designs>
       </generic-items>
-        <player-heads>
-          <example>
-            <player-head slot="1" uuid="069a79f444e94726a5befca90e38aaf5"/>
-          </example>
-        </player-heads>
+      <player-heads>
+        <example>
+          <player-head slot="1" uuid="069a79f444e94726a5befca90e38aaf5"/>
+        </example>
+      </player-heads>
       <disguises>
         <example>
           <loadout>
@@ -880,6 +887,59 @@
       </walk-speed>
     </root-loadout-element>
   </items---loadouts>
+  <shops-module>
+    <shop>
+      <example>
+        <shops>
+          <shop id="a-shop" name="Itemz 4 U" open-check="always" >
+            <point-config>
+              <join-match>400</join-match>
+            </point-config>
+            <items>
+              <item price="100" prestige="0" name="Spanky Spade" check="always">
+                <description>
+                  <line>Knockback V on an 11 use diamond shovel.</line>
+                </description>
+                <stack material="diamond spade" damage="1550">
+                  <enchantments>
+                    <enchantment level="5">knockback</enchantment>
+                  </enchantments>
+                </stack>
+              </item>
+            </items>
+          </shop>
+        </shops>
+      </example>
+      <point-config>
+        <example>
+          <point-config>
+            <join-match>400</join-match>
+          </point-config>
+        </example>
+      </point-config>
+      <shop-items>
+        <item-stacks>
+          <example>
+            <stack material="diamond spade" damage="1550">
+              <enchantments>
+                <enchantment level="5">knockback</enchantment>
+              </enchantments>
+            </stack>
+          </example>
+        </item-stacks>
+        <example>
+          <items>
+            <item price="100" prestige="0" name="Spanky Spade" check="always">
+              <description>
+                <line>Knockback V on an 11 use diamond shovel.</line>
+              </description>
+              ...
+            </item>
+          </items>
+        </example>
+      </shop-items>
+    </shop>
+  </shops-module>
   <broadcasts>
     <broadcast>
       <example>
