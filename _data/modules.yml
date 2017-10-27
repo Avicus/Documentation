@@ -34,6 +34,8 @@ content:
 - {path: /modules/world-modification, name: World Modification}
 - Special Game Types
 - {path: /modules/walls, name: Walls}
+- Arcade Games
+- {path: /modules/musical-carts, name: Musical Carts}
 - Advanced Modules
 - {path: /modules/custom-resource-packs, name: Custom Resource Packs}
 - {path: /modules/executors, name: Executors}

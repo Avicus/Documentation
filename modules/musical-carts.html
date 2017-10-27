@@ -1,0 +1,9 @@
+---
+layout: module
+title: Musical Carts
+permalink: /modules/musical-carts
+---
+
+<span><h1>Musical Carts<small>{% ihighlight xml %}<carts>{% endihighlight %}</small></h1><p>The musical carts game mode spawns minecarts around a center that players must enter to survive.</p><p>This module can only be used on arcade servers.</p><p>This module automatically enables one-life elimination and a win scenario for players.</p><span><h2>Configuration<small></small></h2>{% highlight xml %}
+<carts center="25, 4, 6" height="30" radius="25" radius-subtract="5" />
+{% endhighlight %}<br><div class="table-responsive"><h5>Configuration Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr class="info"><td><code>center</code></td><td class="width: 65%"><p>The center of the spawning circle.</p></td><td><span class="label label-primary">X,Y,Z Vector (Without Decimals)</span></td></tr><tr class="info"><td><code>radius</code></td><td class="width: 65%"><p>The initial radius to spawn carts in.</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td></tr><tr class="info"><td><code>radius-subtract</code></td><td class="width: 65%"><p>The amount that the radius should be shrank by each round.</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td></tr><tr class="info"><td><code>height</code></td><td class="width: 65%"><p>The Y value that all carts should spawn at.</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td></tr></tbody></table></div></span></span>

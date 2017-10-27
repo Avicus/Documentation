@@ -30,6 +30,13 @@
       </example>
     </organisation->
   </authors-and-contributors>
+  <musical-carts>
+    <configuration>
+      <example>
+        <carts center="25, 4, 6" height="30" radius="25" radius-subtract="5"/>
+      </example>
+    </configuration>
+  </musical-carts>
   <xml-includes>
     <include>
       <example>
