@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <script async="" src="//www.google-analytics.com/analytics.js"></script>
+    <link href="/favicon.ico?v=3" rel="icon" type="image/x-icon">
+    <link href="/assets/stylesheets/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="/assets/stylesheets/custom.css" rel="stylesheet" type="text/css">
+    <link href="/assets/stylesheets/lato.css" rel="stylesheet" type="text/css">
+    <link href="/assets/stylesheets/prism.css" rel="stylesheet" type="text/css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <script src="/assets/javascripts/jquery-1.11.2.js" type="text/javascript"></script>
+    <script src="/assets/javascripts/bootstrap.js" type="text/javascript"></script>
+    <script src="/assets/javascripts/custom.js" type="text/javascript"></script>
+    <script src="/assets/javascripts/prism.js" type="text/javascript"></script>
+
+    <title>
+      Regions -  Atlas Map Documentation
+    </title>
+  </head>
+</head>
+<body>
+
+  <header class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">
+        <img width="50" src="/assets/images/logo.png">
+        Atlas Map Documentation
+      </a>
+      <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li class=''>
+          <a href="/"><i class="fa fa-home"></i>
+            Home
+          </a>
+        </li>
+        <li class='active'>
+          <a href="/modules/root-map-element"><i class="fa fa-cubes"></i>
+            Modules
+          </a>
+        </li>
+        <li class=''>
+          <a href="/references/colors"><i class="fa fa-book"></i>
+            References
+          </a>
+        </li>
+        <li class=''>
+          <a href="/examples"><i class="fa fa-gear"></i>
+            Examples
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<div class="jumbotron">
+  <div class="container">
+    <h1>
+      Atlas Map Documentation
+    </h1>
+    <p>
+      A comprehensive guide on creating maps and game modes for Atlas.
+    </p>
+  </div>
+</div>
+
+
+  <div class="container">
+    <div class="row">
+  <div class="col-sm-3">
+    
+<h4>
+  Latest Map Specification:
+  <a class="label label-warning" href="/spec-history">1.0.6</a>
+</h4>
+<hr>
+<div class='btn-group subnav visible-xs'>
+  <button class='btn btn-primary btn-block subnav-btn dropdown-toggle' data-toggle='dropdown' type='button'>
+    XML Modules
+    <i class='fa fa-fw fa-caret-down'></i>
+  </button>
+  <ul class='dropdown-menu subnav-dropdown' role='menu' style='width: 100%;'>
+    <li class="dropdown-header">Core Modules</li><li class=""><a href="/modules/authors-and-contributors">Authors and Contributors</a></li><li class=""><a href="/modules/checks">Checks</a></li><li class=""><a href="/modules/facts-mvp-settings">Facts/MVP Settings</a></li><li class=""><a href="/modules/groups">Groups</a></li><li class=""><a href="/modules/items---loadouts">Items & Loadouts</a></li><li class=""><a href="/modules/localization">Localization</a></li><li class=""><a href="/modules/map-tutorials">Map Tutorials</a></li><li class=""><a href="/modules/objectives">Objectives</a></li><li class="active"><a href="/modules/regions">Regions</a></li><li class=""><a href="/modules/root-map-element">Root Map Element</a></li><li class=""><a href="/modules/spawns">Spawns</a></li><li class=""><a href="/modules/xml-includes">XML Includes</a></li><li class="divider"></li><li class="dropdown-header">General Game Components</li><li class=""><a href="/modules/broadcasts">Broadcasts</a></li><li class=""><a href="/modules/chat-channels">Chat Channels</a></li><li class=""><a href="/modules/chest-refill">Chest Refill</a></li><li class=""><a href="/modules/custom-projectiles">Custom Projectiles</a></li><li class=""><a href="/modules/destroyable-phases">Destroyable Phases</a></li><li class=""><a href="/modules/elimination">Elimination</a></li><li class=""><a href="/modules/kits">Kits</a></li><li class=""><a href="/modules/remove-repair-and-keep">Remove, Repair, and Keep</a></li><li class=""><a href="/modules/zones">Zones</a></li><li class="divider"></li><li class="dropdown-header">Miscellaneous Modules & Features</li><li class=""><a href="/modules/compasses">Compasses</a></li><li class=""><a href="/modules/damage-modification">Damage Modification</a></li><li class=""><a href="/modules/damage-module">Damage Module</a></li><li class=""><a href="/modules/decay-areas-and-phases">Decay Areas and Phases</a></li><li class=""><a href="/modules/ender-chests">Ender Chests</a></li><li class=""><a href="/modules/fake-guis">Fake GUIs</a></li><li class=""><a href="/modules/kills-deaths">Kills/Deaths</a></li><li class=""><a href="/modules/world-modification">World Modification</a></li><li class="divider"></li><li class="dropdown-header">Special Game Types</li><li class=""><a href="/modules/walls">Walls</a></li><li class="divider"></li><li class="dropdown-header">Arcade Games</li><li class=""><a href="/modules/musical-carts">Musical Carts</a></li><li class="divider"></li><li class="dropdown-header">Advanced Modules</li><li class=""><a href="/modules/custom-resource-packs">Custom Resource Packs</a></li><li class=""><a href="/modules/executors">Executors</a></li><li class=""><a href="/modules/match-states">Match States</a></li><li class=""><a href="/modules/module-groups">Module Groups</a></li><li class=""><a href="/modules/results">Results</a></li><li class=""><a href="/modules/schematic-loading-creation">Schematic Loading/Creation</a></li><li class=""><a href="/modules/shops-module">Shops Module</a></li><li class=""><a href="/modules/xml-conditionals">XML Conditionals</a></li>
+  </ul>
+</div>
+
+<div class='sidebar hidden-xs'>
+  <ul class='nav nav-pills nav-stacked docs-nav-pills'>
+    <li><h4>Core Modules</h4></li><li class=""><a href="/modules/authors-and-contributors">Authors and Contributors</a></li><li class=""><a href="/modules/checks">Checks</a></li><li class=""><a href="/modules/facts-mvp-settings">Facts/MVP Settings</a></li><li class=""><a href="/modules/groups">Groups</a></li><li class=""><a href="/modules/items---loadouts">Items & Loadouts</a></li><li class=""><a href="/modules/localization">Localization</a></li><li class=""><a href="/modules/map-tutorials">Map Tutorials</a></li><li class=""><a href="/modules/objectives">Objectives</a></li><li class="active"><a href="/modules/regions">Regions</a></li><li class=""><a href="/modules/root-map-element">Root Map Element</a></li><li class=""><a href="/modules/spawns">Spawns</a></li><li class=""><a href="/modules/xml-includes">XML Includes</a></li><li><h4>General Game Components</h4></li><li class=""><a href="/modules/broadcasts">Broadcasts</a></li><li class=""><a href="/modules/chat-channels">Chat Channels</a></li><li class=""><a href="/modules/chest-refill">Chest Refill</a></li><li class=""><a href="/modules/custom-projectiles">Custom Projectiles</a></li><li class=""><a href="/modules/destroyable-phases">Destroyable Phases</a></li><li class=""><a href="/modules/elimination">Elimination</a></li><li class=""><a href="/modules/kits">Kits</a></li><li class=""><a href="/modules/remove-repair-and-keep">Remove, Repair, and Keep</a></li><li class=""><a href="/modules/zones">Zones</a></li><li><h4>Miscellaneous Modules & Features</h4></li><li class=""><a href="/modules/compasses">Compasses</a></li><li class=""><a href="/modules/damage-modification">Damage Modification</a></li><li class=""><a href="/modules/damage-module">Damage Module</a></li><li class=""><a href="/modules/decay-areas-and-phases">Decay Areas and Phases</a></li><li class=""><a href="/modules/ender-chests">Ender Chests</a></li><li class=""><a href="/modules/fake-guis">Fake GUIs</a></li><li class=""><a href="/modules/kills-deaths">Kills/Deaths</a></li><li class=""><a href="/modules/world-modification">World Modification</a></li><li><h4>Special Game Types</h4></li><li class=""><a href="/modules/walls">Walls</a></li><li><h4>Arcade Games</h4></li><li class=""><a href="/modules/musical-carts">Musical Carts</a></li><li><h4>Advanced Modules</h4></li><li class=""><a href="/modules/custom-resource-packs">Custom Resource Packs</a></li><li class=""><a href="/modules/executors">Executors</a></li><li class=""><a href="/modules/match-states">Match States</a></li><li class=""><a href="/modules/module-groups">Module Groups</a></li><li class=""><a href="/modules/results">Results</a></li><li class=""><a href="/modules/schematic-loading-creation">Schematic Loading/Creation</a></li><li class=""><a href="/modules/shops-module">Shops Module</a></li><li class=""><a href="/modules/xml-conditionals">XML Conditionals</a></li>
+  </ul>
+</div>
+
+
+  </div>
+  <div class="col-sm-9">
+    <span><h1>Regions<small><code class="highlight language-xml" data-lang="xml"><span class="nt">&lt;regions&gt;</span></code></small></h1><p>The regions element is used to store a collection of regions that can be referenced elsewhere by their ID.</p><span><h2>Above<small><code class="highlight language-xml" data-lang="xml"><span class="nt">&lt;above&gt;</span></code></small></h2><p>The above region select any coordinates above the supplied x, y, or z values.</p><figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;above</span> <span class="na">y=</span><span class="s">"25"</span> <span class="nt">/&gt;</span>
+
+<span class="c">&lt;!-- everything above y=25 --&gt;</span>
+
+<span class="nt">&lt;above</span> <span class="na">x=</span><span class="s">"25"</span> <span class="na">z=</span><span class="s">"21"</span> <span class="nt">/&gt;</span>
+
+<span class="c">&lt;!-- any block in below x=25, z=21 --&gt;</span></code></pre></figure><br><div class="table-responsive"><h5>Above Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>x</code></td><td class="width: 65%"><p>The base block to select above on the X-axis</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td></tr><tr><td><code>y</code></td><td class="width: 65%"><p>The base block to select above on the Y-axis</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td></tr><tr><td><code>z</code></td><td class="width: 65%"><p>The base block to select above on the Z-axis</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td></tr></tbody></table></div></span><span><h2>Below<small><code class="highlight language-xml" data-lang="xml"><span class="nt">&lt;below&gt;</span></code></small></h2><p>The below region select any coordinates below the supplied x, y, or z values.</p><figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;below</span> <span class="na">x=</span><span class="s">"32"</span> <span class="na">y=</span><span class="s">"18"</span> <span class="na">z=</span><span class="s">"52"</span> <span class="nt">/&gt;</span>
+
+<span class="c">&lt;!-- you get the idea --&gt;</span></code></pre></figure><br><div class="table-responsive"><h5>Below Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>x</code></td><td class="width: 65%"><p>The base block to select below on the X-axis</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td></tr><tr><td><code>y</code></td><td class="width: 65%"><p>The base block to select below on the Y-axis</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td></tr><tr><td><code>z</code></td><td class="width: 65%"><p>The base block to select below on the Z-axis</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td></tr></tbody></table></div></span><span><h2>Block<small><code class="highlight language-xml" data-lang="xml"><span class="nt">&lt;block&gt;</span></code></small></h2><p>The block region represents a single block in the world.</p><figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;block&gt;</span>-138,32,87<span class="nt">&lt;/block&gt;</span></code></pre></figure><br><h4>Element Text</h4><table class="table table-condensed"><thead><tr><td>Description</td><td>Type</td></tr></thead><tbody><tr><td class="width: 65%"><p>The location of the block.</p></td><td><span class="label label-primary">X,Y,Z Vector</span></td></tr></tbody></table></span><span><h2>Bounds<small><code class="highlight language-xml" data-lang="xml"><span class="nt">&lt;bounds&gt;</span></code></small></h2><p>The bounds region selects the area around the region specified. Similar to the WorldEdit //walls command.</p><figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;bounds</span> <span class="na">id=</span><span class="s">"bound"</span> <span class="na">y-axis=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;region&gt;</span>
+    <span class="nt">&lt;cuboid</span> <span class="na">min=</span><span class="s">"11, 10, -13"</span> <span class="na">max=</span><span class="s">"2, 10, -5"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/region&gt;</span>
+<span class="nt">&lt;/bounds&gt;</span></code></pre></figure><br><div class="table-responsive"><h5>Bounds Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td><td>Default</td></tr></thead><tbody><tr class="info"><td><code>region</code></td><td class="width: 65%"><p>The region that should be bounded</p><p>This can either be in ID form, or as a nested XML tag in the syntax of a region.</p></td><td><span class="label label-primary">Region</span></td><td></td></tr><tr><td><code>x-axis</code></td><td class="width: 65%"><p>If the bounds on the X-axis should be selected.</p></td><td><span class="label label-primary">True/False</span></td><td><code>true</code></td></tr><tr><td><code>y-axis</code></td><td class="width: 65%"><p>If the bounds on the Y-axis should be selected.</p></td><td><span class="label label-primary">True/False</span></td><td><code>true</code></td></tr><tr><td><code>z-axis</code></td><td class="width: 65%"><p>If the bounds on the Z-axis should be selected.</p></td><td><span class="label label-primary">True/False</span></td><td><code>true</code></td></tr></tbody></table></div></span><span><h2>Box<small><code class="highlight language-xml" data-lang="xml"><span class="nt">&lt;box&gt;</span></code></small></h2><p>A box is a helper region that will return a cuboid region based on supplied coordinate modifiers and a center.</p><figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;box</span> <span class="na">center=</span><span class="s">"4,3,1"</span> <span class="na">x=</span><span class="s">"4"</span> <span class="na">y=</span><span class="s">"5"</span> <span class="na">z=</span><span class="s">"11"</span> <span class="nt">/&gt;</span>
+
+<span class="c">&lt;!-- A cuboid that centers at 4,3,1 spreads out above and below the supplied coordinates. --&gt;</span>
+
+<span class="c">&lt;!-- If x,y, or z isn't supplied, 0 will be used for the value --&gt;</span></code></pre></figure><br><div class="table-responsive"><h5>Box Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td><td>Default</td></tr></thead><tbody><tr class="info"><td><code>center</code></td><td class="width: 65%"><p>The center of the box.</p></td><td><span class="label label-primary">X,Y,Z Vector</span></td><td></td></tr><tr><td><code>x</code></td><td class="width: 65%"><p>Amount of blocks to expand the box on the X-axis</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td><td><code>0</code></td></tr><tr><td><code>y</code></td><td class="width: 65%"><p>Amount of blocks to expand the box on the Y-axis</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td><td><code>0</code></td></tr><tr><td><code>z</code></td><td class="width: 65%"><p>Amount of blocks to expand the box on the Z-axis</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td><td><code>0</code></td></tr></tbody></table></div></span><span><h2>Cuboid<small><code class="highlight language-xml" data-lang="xml"><span class="nt">&lt;cuboid&gt;</span></code></small></h2><p>A cuboid is a three-dimensional box.</p><figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;cuboid</span> <span class="na">min=</span><span class="s">"23, 50, 15"</span> <span class="na">max=</span><span class="s">"40, 62, 31"</span> <span class="nt">/&gt;</span>
+
+<span class="nt">&lt;cuboid</span> <span class="na">min=</span><span class="s">"50, 30, 30"</span> <span class="na">max=</span><span class="s">"25, 18, 25"</span> <span class="nt">/&gt;</span>
+
+<span class="c">&lt;!-- min doesn't strictly require to be below max --&gt;</span></code></pre></figure><br><div class="table-responsive"><h5>Cuboid Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr class="info"><td><code>min</code></td><td class="width: 65%"><p>The minimum location of the region.</p></td><td><span class="label label-primary">X,Y,Z Vector</span></td></tr><tr class="info"><td><code>max</code></td><td class="width: 65%"><p>The maximum location of the region.</p></td><td><span class="label label-primary">X,Y,Z Vector</span></td></tr></tbody></table></div></span><span><h2>Cylinder<small><code class="highlight language-xml" data-lang="xml"><span class="nt">&lt;cylinder&gt;</span></code></small></h2><p>A cylinder is a 3-dimensional circle region.</p><figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;cylinder</span> <span class="na">base=</span><span class="s">"23, 50, 15"</span> <span class="na">radius=</span><span class="s">"5"</span> <span class="na">height=</span><span class="s">"10"</span> <span class="nt">/&gt;</span></code></pre></figure><br><div class="table-responsive"><h5>Cylinder Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr class="info"><td><code>base</code></td><td class="width: 65%"><p>The base of the cylinder.</p></td><td><span class="label label-primary">X,Y,Z Vector</span></td></tr><tr class="info"><td><code>radius</code></td><td class="width: 65%"><p>The height of the cylinder.</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td></tr></tbody></table></div></span><span><h2>Everywhere<small><code class="highlight language-xml" data-lang="xml"><span class="nt">&lt;everywhere&gt;</span></code></small></h2><p>This represents every coordinate in the world.</p><figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;everywhere</span> <span class="nt">/&gt;</span>
+
+<span class="c">&lt;!-- every block --&gt;</span></code></pre></figure><br></span><span><h2>Fill<small><code class="highlight language-xml" data-lang="xml"><span class="nt">&lt;fill&gt;</span></code></small></h2><p>The fill region represents the coordinates of each block matching the defined material within the bounds supplied.</p><figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;fill</span> <span class="na">bounds=</span><span class="s">"a-cuboid"</span> <span class="na">materials=</span><span class="s">"dirt;grass"</span> <span class="na">start=</span><span class="s">"3,2,1"</span> <span class="nt">/&gt;</span>
+
+<span class="c">&lt;!-- every block that is either dirt or grass within the bounds --&gt;</span></code></pre></figure><br><div class="table-responsive"><h5>Fill Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr class="info"><td><code>bounds</code></td><td class="width: 65%"><p>The region that contains the blocks to search for.</p><p>This can either be in ID form, or as a nested XML tag in the syntax of a region.</p></td><td><span class="label label-primary">Region</span></td></tr><tr class="info"><td><code>materials</code></td><td class="width: 65%"><p>The blocks to search for.</p><p>A material is defined in the syntax of matname:damage when matname is the name of the material and damage is the damage value of the material.</p><p>A damage value is not required.</p><p>Multiple materials can be defined by adding a ';' between each individual declaration.</p></td><td><span class="label label-primary">Multi Material Matcher</span></td></tr><tr><td><code>start</code></td><td class="width: 65%"><p>Location to start the search from. (Defaults to center of boundary)</p></td><td><span class="label label-primary">X,Y,Z Vector</span></td></tr></tbody></table></div></span><span><h2>Intersect<small><code class="highlight language-xml" data-lang="xml"><span class="nt">&lt;intersect&gt;</span></code></small></h2><p>This region is comprised of points that are shared by all of the nested regions.</p><figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;intersect&gt;</span>
+  <span class="nt">&lt;cuboid</span> <span class="na">min=</span><span class="s">"0, 5, 0"</span> <span class="na">max=</span><span class="s">"5, 10, 5"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;cuboid</span> <span class="na">min=</span><span class="s">"0, 5, 0"</span> <span class="na">max=</span><span class="s">"5, 7, 5"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/intersect&gt;</span></code></pre></figure><br></span><span><h2>Invert<small><code class="highlight language-xml" data-lang="xml"><span class="nt">&lt;invert&gt;</span></code></small></h2><p>The invert region takes the inverse of the regions provided within the element. For example, if a single point is provided, the inverted version of that region would be every point in the world excluding that point.</p><figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;invert&gt;</span>
+  <span class="nt">&lt;cuboid</span> <span class="na">min=</span><span class="s">"32, 112, 52"</span> <span class="na">max=</span><span class="s">"52, 12, 5"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;translate</span> <span class="na">offset=</span><span class="s">"-25, -10, 0"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;cuboid</span> <span class="na">min=</span><span class="s">"-5, 90, -5"</span> <span class="na">max=</span><span class="s">"5, 100, 5"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;sphere</span> <span class="na">origin=</span><span class="s">"0, 100, 0"</span> <span class="na">radius=</span><span class="s">"5"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/translate&gt;</span>
+<span class="nt">&lt;/invert&gt;</span></code></pre></figure><br></span><span><h2>Join<small><code class="highlight language-xml" data-lang="xml"><span class="nt">&lt;join&gt;</span></code></small></h2><p>Provide any number of regions within this region type to create a region that combines all the points of the nested regions.</p><figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;join&gt;</span>
+  <span class="nt">&lt;cuboid</span> <span class="na">min=</span><span class="s">"-5, 90, -5"</span> <span class="na">max=</span><span class="s">"5, 100, 5"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;sphere</span> <span class="na">origin=</span><span class="s">"0, 100, 0"</span> <span class="na">radius=</span><span class="s">"5"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/join&gt;</span></code></pre></figure><br></span><span><h2>Nowhere<small><code class="highlight language-xml" data-lang="xml"><span class="nt">&lt;nowhere&gt;</span></code></small></h2><p>This represents no coordinate in the world.</p><figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;nowhere</span> <span class="nt">/&gt;</span>
+
+<span class="c">&lt;!-- no blocks at any location --&gt;</span></code></pre></figure><br></span><span><h2>Point<small><code class="highlight language-xml" data-lang="xml"><span class="nt">&lt;point&gt;</span></code></small></h2><p>A point represents a location in the world.</p><figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;point&gt;</span>24, 15.5, 60<span class="nt">&lt;/point&gt;</span></code></pre></figure><br><h4>Element Text</h4><table class="table table-condensed"><thead><tr><td>Description</td><td>Type</td></tr></thead><tbody><tr><td class="width: 65%"><p>The location.</p></td><td><span class="label label-primary">X,Y,Z Vector</span></td></tr></tbody></table></span><span><h2>Rectangle<small><code class="highlight language-xml" data-lang="xml"><span class="nt">&lt;rectangle&gt;</span></code></small></h2><p>A rectangle is a cuboid region that encompasses all y coordinates.</p><table class="table table-condensed"><thead><tr><td>Specification</td><td>Changes</td></tr></thead><tbody><tr class="bg-warning"><td>1.0.6<td>Rectangles now require min/max values.</td></td></tr></tbody></table><figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;rectangle</span> <span class="na">min=</span><span class="s">"50, 40"</span> <span class="na">max=</span><span class="s">"-50, -40"</span> <span class="nt">/&gt;</span></code></pre></figure><br><div class="table-responsive"><h5>Rectangle Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr class="info"><td><code>min</code></td><td class="width: 65%"><p>Min location of the rectangle.</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td></tr><tr class="info"><td><code>max</code></td><td class="width: 65%"><p>Max location of the rectangle.</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td></tr></tbody></table></div></span><span><h2>Region Reference<small><code class="highlight language-xml" data-lang="xml"><span class="nt">&lt;region&gt;</span></code></small></h2><p>You may use the <region> type to reference regions that are listed in the <regions> element by their id.</p><table class="table table-condensed"><thead><tr><td>Specification</td><td>Changes</td></tr></thead><tbody><tr class="bg-info"><td>1.0.6<td>All vectors now support decimals.</td></td></tr></tbody></table><figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;point</span> <span class="na">id=</span><span class="s">"a-point"</span><span class="nt">&gt;</span>24, 15, 60<span class="nt">&lt;/point&gt;</span>
+
+<span class="nt">&lt;join</span> <span class="na">id=</span><span class="s">"reference-example"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;region</span> <span class="na">id=</span><span class="s">"a-point"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/join&gt;</span></code></pre></figure><br><div class="table-responsive"><h5>Region Reference Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr class="info"><td><code>id</code></td><td class="width: 65%"><p>The id of the region for reference.</p></td><td><span class="label label-primary">Region ID</span></td></tr></tbody></table></div></span><span><h2>Sector<small><code class="highlight language-xml" data-lang="xml"><span class="nt">&lt;sector&gt;</span></code></small></h2><p>The sector region represents a sector of a circle that covers all Y values.</p><figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;sector</span> <span class="na">x=</span><span class="s">"11"</span> <span class="na">z=</span><span class="s">"22"</span> <span class="na">start=</span><span class="s">"120.0"</span> <span class="na">end=</span><span class="s">"130.0"</span> <span class="nt">/&gt;</span>
+
+<span class="c">&lt;!-- everything between angle 120 and 130 in a circle that has a base at the supplied coords. --&gt;</span></code></pre></figure><br><div class="table-responsive"><h5>Sector Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr><td><code>x</code></td><td class="width: 65%"><p>The base of the circle on the X-axis</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td></tr><tr><td><code>z</code></td><td class="width: 65%"><p>The base of the circle on the Z-axis</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td></tr><tr class="info"><td><code>start</code></td><td class="width: 65%"><p>The angle that the sector should begin.</p></td><td><span class="label label-primary">Number (With Decimal)</span></td></tr><tr class="info"><td><code>end</code></td><td class="width: 65%"><p>The angle that the sector should end.</p></td><td><span class="label label-primary">Number (With Decimal)</span></td></tr></tbody></table></div></span><span><h2>Sphere<small><code class="highlight language-xml" data-lang="xml"><span class="nt">&lt;sphere&gt;</span></code></small></h2><p>A sphere is a perfectly round geometrical object in three-dimensional space that is the surface of a completely round ball</p><figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;sphere</span> <span class="na">origin=</span><span class="s">"50, 18, 30"</span> <span class="na">radius=</span><span class="s">"12"</span> <span class="nt">/&gt;</span></code></pre></figure><br><div class="table-responsive"><h5>Sphere Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr class="info"><td><code>origin</code></td><td class="width: 65%"><p>The origin of the sphere.</p></td><td><span class="label label-primary">X,Y,Z Vector</span></td></tr><tr class="info"><td><code>radius</code></td><td class="width: 65%"><p>The radius of the sphere.</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td></tr></tbody></table></div></span><span><h2>Subtract<small><code class="highlight language-xml" data-lang="xml"><span class="nt">&lt;subtract&gt;</span></code></small></h2><p>The subtract region takes the first listed region and for each successive region listed, removes points from it.</p><figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;subtract&gt;</span>
+  <span class="c">&lt;!-- these region includes all points in the cuboid, except 60, 40, 60 --&gt;</span>
+  <span class="nt">&lt;cuboid</span> <span class="na">min=</span><span class="s">"45, 32, 45"</span> <span class="na">max=</span><span class="s">"90, 64, 90"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;point&gt;</span>60, 40, 60<span class="nt">&lt;/point&gt;</span>
+<span class="nt">&lt;/subtract&gt;</span></code></pre></figure><br></span><span><h2>Translate<small><code class="highlight language-xml" data-lang="xml"><span class="nt">&lt;translate&gt;</span></code></small></h2><p>This translates all the regions nested within it by an offset.</p><figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;translate</span> <span class="na">offset=</span><span class="s">"-25, -10, 0"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;cuboid</span> <span class="na">min=</span><span class="s">"-5, 90, -5"</span> <span class="na">max=</span><span class="s">"5, 100, 5"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;sphere</span> <span class="na">origin=</span><span class="s">"0, 100, 0"</span> <span class="na">radius=</span><span class="s">"5"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/translate&gt;</span></code></pre></figure><br><div class="table-responsive"><h5>Translate Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr class="info"><td><code>offset</code></td><td class="width: 65%"><p>Amount of blocks to offset the nested regions by.</p></td><td><span class="label label-primary">X,Y,Z Vector</span></td></tr></tbody></table></div></span><span><h2>Void<small><code class="highlight language-xml" data-lang="xml"><span class="nt">&lt;void&gt;</span></code></small></h2><p>The void region selects all blocks that have only air under it.</p><table class="table table-condensed"><thead><tr><td>Specification</td><td>Changes</td></tr></thead><tbody><tr class="bg-info"><td>1.0.4<td>Void regions now have configurable min/max/ignored-blocks</td></td></tr></tbody></table><figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;void</span> <span class="nt">/&gt;</span>
+
+<span class="c">&lt;!-- everything that has void under it. --&gt;</span></code></pre></figure><br><div class="table-responsive"><h5>Void Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td><td>Default</td></tr></thead><tbody><tr><td><code>min</code></td><td class="width: 65%"><p>The y-coordinate to start looking for air at</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td><td><code>0</code></td></tr><tr><td><code>max</code></td><td class="width: 65%"><p>The y-coordinate to stop looking for air at</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td><td><code>5</code></td></tr><tr><td><code>ignored-blocks</code></td><td class="width: 65%"><p>Blocks which should be counted as air.</p><p>A material is defined in the syntax of matname:damage when matname is the name of the material and damage is the damage value of the material.</p><p>A damage value is not required.</p><p>Multiple materials can be defined by adding a ';' between each individual declaration.</p></td><td><span class="label label-primary">Multi Material Matcher</span></td><td></td></tr></tbody></table></div></span><span><h2>circle<small><code class="highlight language-xml" data-lang="xml"><span class="nt">&lt;circle&gt;</span></code></small></h2><p>A circle is essentially a cylinder with a height of 1.</p><figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;circle</span> <span class="na">center=</span><span class="s">"23, 50, 15"</span> <span class="na">radius=</span><span class="s">"5"</span> <span class="nt">/&gt;</span></code></pre></figure><br><div class="table-responsive"><h5>circle Attributes</h5><table class="table table-condensed"><thead><tr><td>Attribute</td><td>Description</td><td>Type</td></tr></thead><tbody><tr class="info"><td><code>center</code></td><td class="width: 65%"><p>The center of the circle.</p></td><td><span class="label label-primary">X,Y,Z Vector</span></td></tr><tr class="info"><td><code>radius</code></td><td class="width: 65%"><p>The radius of the circle.</p></td><td><span class="label label-primary">Number (Without Decimal)</span></td></tr></tbody></table></div></span></span>
+  </div>
+</div>
+
+  </div>
+
+  <div class="container">
+  <hr>
+  <footer class="docs-footer">
+    <ul class="nav nav-pills">
+      <li class="pull-left">
+        <a href="https://avicus.net">
+          ©
+          2017
+          Avicus Network LLC
+        </a>
+      </li>
+      <li class="pull-right">
+        <a href="https://github.com/Avicus/atlas.avicus.net"><i class="fa fa-github"></i>
+          Contribute
+        </a>
+      </li>
+      <li class="pull-right">
+        <a href="https://maps.avicus.net">Maps
+        </a>
+      </li>
+    </ul>
+    <br>
+  </footer>
+</div>
+
+
+</body>
+</html>
