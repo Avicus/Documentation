@@ -1,4 +1,4 @@
-spec: 1.0.5
+spec: 1.0.6
 content:
 - Core Modules
 - {path: /modules/authors-and-contributors, name: Authors and Contributors}

@@ -1002,7 +1002,7 @@
     </point>
     <rectangle>
       <example>
-        <rectangle x="50" z="-40"/>
+        <rectangle min="50, 40" max="-50, -40"/>
       </example>
     </rectangle>
     <sphere>
